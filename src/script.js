@@ -2,15 +2,13 @@
 
 const e = React.createElement;
 
-let page = "home";
-
 class Info extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        if (this.props.page === "Contact")
+        if (this.props.page === "Home")
             return (
                 e('div', { className: "infoBox" },
                     e("img", { src: "./src/CDO.jpg", className: "photoIcon" }),
@@ -86,9 +84,9 @@ class Info extends React.Component {
             return (
                 e('div', { className: "infoBox" },
                     e("h2", {}, "Resume"),
-                    e("div", { },
-                        e("iframe", { className: "pubItem", src:"./src/cv.pdf", width: "100%", height: "500em" },
-                        e("a", {href:"./src/cv.pdf", download: "AndrewBurnieCV.pdf"}, "Download CV"), )
+                    e("div", {},
+                        e("iframe", { className: "pubItem", src: "./src/AndrewBurnieCV.pdf", width: "100%", height: "500em" },
+                        )
                     ),
                 )
             );
@@ -119,7 +117,7 @@ class NavButton extends React.Component {
 }
 
 ReactDOM.render(
-    e(Info, { page: "Contact" }),
+    e(Info, { page: "Home" }),
     document.getElementById('info')
 )
 
