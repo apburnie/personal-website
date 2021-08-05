@@ -26,12 +26,19 @@ h1 {
 }
 
 @media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 3vh !important;
+        width: 80% !important;
+    }
     #info {
         width: 80% !important; 
+        height: 60vh !important;
     } 
     #buttonBanner {
-        height: 4vh !important;
         padding: 0.5em !important;   
+    }
+    button {
+        font-size: 3vh !important;
     }
 }
 
