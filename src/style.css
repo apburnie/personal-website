@@ -27,8 +27,12 @@ h1 {
 
 @media screen and (max-width: 1000px) {
     #info {
-        width: 80% !important;    
+        width: 80% !important; 
     } 
+    #buttonBanner {
+        height: 4vh !important;
+        padding: 0.5em !important;   
+    }
 }
 
 #info {
