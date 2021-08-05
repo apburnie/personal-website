@@ -28,14 +28,15 @@ h1 {
 @media screen and (max-width: 1000px) {
     h1 {
         font-size: 3vh !important;
-        width: 80% !important;
+        width: 100% !important; 
     }
     #info {
-        width: 80% !important; 
-        height: 60vh !important;
+        width: 90% !important; 
+        height: 65vh !important;
     } 
     #buttonBanner {
-        padding: 0.5em !important;   
+        padding: 0.5em !important;  
+        width: 90% !important;  
     }
     button {
         font-size: 3vh !important;
