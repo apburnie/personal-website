@@ -7,6 +7,7 @@ body {
 }
 
 h1 {
+    font-size: 5vh;
     background-color: #e8e8e6;
     padding: 0.5em;
     border-radius: 1em;
@@ -31,15 +32,18 @@ h1 {
 }
 
 #info {
-    margin: auto;
     width: 60%;
     text-align: center;
     font-size: 2vh;
     padding: 0.5em;
     background-color: #e8e8e6;
-    height: 20%;
     box-shadow: -6px -6px 26px 0 rgba(230,230,230,0.90), 6px 6px 16px 0 rgba(150, 150, 150, 0.5);
     border-radius: 1em;
+    overflow: auto;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 60vh;
 }
 
 
@@ -47,7 +51,7 @@ h1 {
 button{
     color: #2f1b33;
     background-color: #e8e8e6;
-    font-size: 2em;
+    font-size: 3vh;
     border: none;
 }
 
@@ -67,7 +71,8 @@ button:hover, button:active{
     border-radius: 1em;
     padding: 1em;
     position: fixed;
-    right: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     bottom: 1%;
     box-shadow: -6px -6px 26px 0 rgba(230,230,230,0.90), 6px 6px 16px 0 rgba(150, 150, 150, 0.5);
 }

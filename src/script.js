@@ -85,7 +85,7 @@ class Info extends React.Component {
                 e('div', { className: "infoBox" },
                     e("h2", {}, "Resume"),
                     e("div", {},
-                        e("iframe", { className: "pubItem", src: "./src/AndrewBurnieCV.pdf", width: "100%", height: "500em" },
+                        e("iframe", { className: "pubItem", src: "./src/AndrewBurnieCV.pdf", width: "100%", height: "480vh" },
                         )
                     ),
                 )
