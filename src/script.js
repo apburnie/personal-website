@@ -11,7 +11,7 @@ class Info extends React.Component {
         if (this.props.page === "Home")
             return (
                 e('div', { className: "infoBox" },
-                    e("img", { src: "./src/CDO.jpg", className: "photoIcon" }),
+                    e("img", { src: "./src/profile.jpg", className: "photoIcon" }),
                     e("p", {}, "Frontend Software Engineer"),
                     e("p", {}, "Specialist expertise in cryptoassets, blockchain and AI"),
                     e("p", {}, "PhD in Computer Science"),
