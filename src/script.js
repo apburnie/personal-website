@@ -68,15 +68,16 @@ class Info extends React.Component {
                 e('div', { className: "infoBox" },
                     e("h2", {}, "Current Projects"),
                     e("div", { className: "skillBox" },
-                        e("span", { className: "skillGroup" }, "Mattereum Frontend Engineer"),
-                        e("span", { className: "skillItem" }, "(May 2021-):"),
-                        e("span", { className: "skillItem" }, "Creating, deploying, maintaining and continually improving software and tools to support the Ontology Team in creating, validating and publishing Physical Asset NFTs that meet customer requirements.")
-                    ),
-                    e("div", { className: "skillBox" },
                         e("span", { className: "skillGroup" }, "Wluper Fullstack Engineer and Solution Architect"),
                         e("span", { className: "skillItem" }, "(February 2021-):"),
                         e("span", { className: "skillItem" }, "Created and continually improving the Conversational AI Assistant UI and tools to support customers on Desktop, iPhones and Android smartphones")
                     ),
+                    e("div", { className: "skillBox" },
+                        e("span", { className: "skillGroup" }, "Mattereum Frontend Engineer"),
+                        e("span", { className: "skillItem" }, "(May 2021-):"),
+                        e("span", { className: "skillItem" }, "Creating, deploying, maintaining and continually improving software and tools to support the Ontology Team in creating, validating and publishing Physical Asset NFTs that meet customer requirements.")
+                    ),
+
                 )
             );
 
