@@ -32,13 +32,34 @@ function App() {
       <table className="w-3/5 mx-auto text-center mb-10">
         <tr>
           <th>
-            <button onClick={() => setPage("Home")}>Home</button>
+            <button
+              className={
+                page === "Home" ? "bg-blue-500 text-white" : "bg-gray-50"
+              }
+              onClick={() => setPage("Home")}
+            >
+              Home
+            </button>
           </th>
           <th>
-            <button onClick={() => setPage("Skills")}>Skills</button>
+            <button
+              className={
+                page === "Skills" ? "bg-blue-500 text-white" : "bg-gray-50"
+              }
+              onClick={() => setPage("Skills")}
+            >
+              Skills
+            </button>
           </th>
           <th>
-            <button onClick={() => setPage("Projects")}>Projects</button>
+            <button
+              className={
+                page === "Projects" ? "bg-blue-500 text-white" : "bg-gray-50"
+              }
+              onClick={() => setPage("Projects")}
+            >
+              Projects
+            </button>
           </th>
         </tr>
       </table>
