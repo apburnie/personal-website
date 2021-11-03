@@ -23,11 +23,11 @@ function App() {
   return (
     <div>
       <header className="w-screen">
-        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-3/5 text-center mx-auto mt-4 mb-4">
+        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-3/5 text-center mx-auto mt-4 mb-4 rounded-3xl">
           Andrew Burnie
         </h1>
       </header>
-      <div className="w-screen h-[550px] mb-10">{presentInfo(page)}</div>
+      <div className="h-[550px] mb-10">{presentInfo(page)}</div>
 
       <table className="w-3/5 mx-auto text-center mb-10">
         <tr>
@@ -43,7 +43,7 @@ function App() {
         </tr>
       </table>
 
-      <table className="w-full bg-gray-50 mx-auto">
+      <table className="w-screen md:w-3/5 bg-gray-50 mx-auto md:rounded-3xl">
         <tr>
           <th>
             <a href="https://github.com/Andrew47">
