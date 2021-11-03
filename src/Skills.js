@@ -2,7 +2,7 @@ export default function Skills() {
   return (
     <div className="info">
       <dl className="infoCell">
-        <dt className="font-bold">Frontend</dt>
+        <dt className="font-bold mt-[100px]">Frontend</dt>
         <dd>JavaScript, TypeScript, React, Vue, HTML/CSS</dd>
       </dl>
       <dl className="infoCell">

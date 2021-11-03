@@ -2,7 +2,7 @@ export default function Projects() {
   return (
     <div className="info">
       <dl className="infoCell">
-        <dt className="font-bold">Gro</dt>
+        <dt className="font-bold md:mt-[65px] lg:mt[80px]">Gro</dt>
         <dd>Senior Frontend Developer working on React-based web app</dd>
       </dl>
       <dl className="infoCell">

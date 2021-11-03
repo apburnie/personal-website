@@ -34,7 +34,7 @@ function App() {
           <th>
             <button
               className={
-                page === "Home" ? "bg-blue-500 text-white" : "bg-gray-50"
+                page === "Home" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
               }
               onClick={() => setPage("Home")}
             >
@@ -44,7 +44,7 @@ function App() {
           <th>
             <button
               className={
-                page === "Skills" ? "bg-blue-500 text-white" : "bg-gray-50"
+                page === "Skills" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
               }
               onClick={() => setPage("Skills")}
             >
@@ -54,7 +54,7 @@ function App() {
           <th>
             <button
               className={
-                page === "Projects" ? "bg-blue-500 text-white" : "bg-gray-50"
+                page === "Projects" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
               }
               onClick={() => setPage("Projects")}
             >
@@ -64,7 +64,7 @@ function App() {
         </tr>
       </table>
 
-      <table className="w-screen md:w-3/5 bg-gray-50 mx-auto md:rounded-3xl">
+      <table className="shadow w-screen md:w-3/5 bg-gray-50 mx-auto md:rounded-3xl h-12">
         <tr>
           <th>
             <a href="https://github.com/Andrew47">
