@@ -44,7 +44,9 @@ function App() {
           <th>
             <button
               className={
-                page === "Skills" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
+                page === "Skills"
+                  ? "bg-blue-500 text-white shadow"
+                  : "bg-gray-50"
               }
               onClick={() => setPage("Skills")}
             >
@@ -54,7 +56,9 @@ function App() {
           <th>
             <button
               className={
-                page === "Projects" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
+                page === "Projects"
+                  ? "bg-blue-500 text-white shadow"
+                  : "bg-gray-50"
               }
               onClick={() => setPage("Projects")}
             >

@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className="info">
       <img src={profileImage} alt="profile" className="mx-auto" />
-      <h2 className="text-2xl mt-5">Senior JavaScript Engineer</h2>
-      <h3 className="text-xl mt-5">Frontend - Backend - NFTs - DeFi</h3>
+      <h2 className="text-2xl mt-5">Senior UI Engineer</h2>
+      <h3 className="text-xl mt-5">Frontend - Fullstack</h3>
       <h4 className="text-base mt-5">PhD in Computer Science</h4>
       <p className="mt-5">
         <b>Email:</b> apburnie@hotmail.co.uk

@@ -3,11 +3,18 @@ export default function Skills() {
     <div className="info">
       <dl className="infoCell">
         <dt className="font-bold mt-[100px]">Frontend</dt>
-        <dd>JavaScript, TypeScript, React, Vue, HTML/CSS</dd>
+        <dd>JavaScript, TypeScript, React, Vue</dd>
       </dl>
       <dl className="infoCell">
         <dt className="font-bold mt-5">Backend</dt>
-        <dd>AWS, Azure, APIs, JSON, GraphQL, Python, SQL/NoSQL</dd>
+        <dd>
+          <ul>
+            <li>REST, RPC and GraphQL APIs</li>
+            <li>AWS and Azure</li>
+            <li>Node.js and Python</li>
+            <li>SQL and NoSQL</li>
+          </ul>
+        </dd>
       </dl>
       <dl className="infoCell">
         <dt className="font-bold mt-5">NFTs and DeFi</dt>
