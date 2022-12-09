@@ -27,7 +27,7 @@ function App() {
   return (
     <div>
       <header className="w-screen">
-        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-3/5 text-center mx-auto mt-4 mb-4 rounded-3xl shadow">
+        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-screen sm:w-3/5 text-center mx-auto mt-4 mb-4 sm:rounded-3xl shadow">
           Andrew Burnie
         </h1>
       </header>
