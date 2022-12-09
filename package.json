@@ -16,7 +16,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "codeformat": "yarn prettier --write src",
+    "lint:fix": "yarn prettier --write src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

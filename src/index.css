@@ -4,39 +4,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 
-@layer base {
-  body {
-    background-color: #ced4ba;
-    font-family: "Ubuntu", sans-serif;
-    color: #2f1b33;
-  }
+body {
+  background-color: #ced4ba;
+  font-family: "Ubuntu", sans-serif;
+  color: #2f1b33;
+}
 
-  h1 {
-    box-shadow: -6px -6px 26px 0 rgba(230, 230, 230, 0.83),
-      6px 6px 16px 0 rgba(150, 150, 150, 0.51);
-  }
+.info {
+  @apply bg-gray-50 w-screen md:w-3/5 lg:w-2/5 mx-auto text-center p-5 h-[550px] md:rounded-lg flex flex-col justify-around;
+}
 
-  .info {
-    @apply bg-gray-50 w-screen md:w-3/5 lg:w-2/5 mx-auto text-center p-5 h-[550px] md:rounded-lg flex flex-col justify-around;
-  }
-  .shadow {
-    box-shadow: -6px -6px 26px 0 rgba(230, 230, 230, 0.83),
-      6px 6px 16px 0 rgba(150, 150, 150, 0.5);
-  }
-
-  footer {
-    @apply flex justify-around;
-  }
-
-  button {
-    @apply bg-gray-50 hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 rounded block;
-  }
-
-  .infoCell {
-    @apply text-blue-700 hover:text-gray-900;
-  }
-
-  .infoCell dt {
-    @apply font-bold;
-  }
+.infoCell {
+  @apply text-blue-700 hover:text-gray-900;
 }

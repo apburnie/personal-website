@@ -16,38 +16,38 @@ function presentInfo(page) {
   }
 }
 
+const buttonStyle = (
+  selectedPage,
+  buttonLabel
+) => `bg-gray-50 hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 rounded block shadow
+${selectedPage === buttonLabel && "bg-blue-500 text-white "}`;
+
 function App() {
   const [page, setPage] = useState("Home");
   return (
     <div>
       <header className="w-screen">
-        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-3/5 text-center mx-auto mt-4 mb-4 rounded-3xl">
+        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-3/5 text-center mx-auto mt-4 mb-4 rounded-3xl shadow">
           Andrew Burnie
         </h1>
       </header>
       <main className="h-[550px] mb-10">{presentInfo(page)}</main>
 
-      <footer>
+      <footer className="flex justify-around">
         <button
-          className={
-            page === "Home" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
-          }
+          className={buttonStyle(page, "Home")}
           onClick={() => setPage("Home")}
         >
           Home
         </button>
         <button
-          className={
-            page === "Skills" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
-          }
+          className={buttonStyle(page, "Skills")}
           onClick={() => setPage("Skills")}
         >
           Skills
         </button>
         <button
-          className={
-            page === "Projects" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
-          }
+          className={buttonStyle(page, "Projects")}
           onClick={() => setPage("Projects")}
         >
           Projects
