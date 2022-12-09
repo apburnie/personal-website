@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function Projects() {
   const [sectionNo, setSectionNo] = useState(0);
 
+  const buttonStyle = "border border-solid border-black p-[4px] rounded-[16px]";
+
   return (
     <div className="info relative">
       <section
@@ -39,18 +41,22 @@ export default function Projects() {
           with Ocado.
         </p>
       </section>
-      <div className="absolute bottom-0 left-0 right-0 sm:hidden w-full flex justify-around">
+      <div className="absolute bottom-[12px] left-0 right-0 sm:hidden w-full flex justify-around">
         <button
-          className={sectionNo === 0 && "invisible"}
+          className={`${buttonStyle} ${sectionNo === 0 && "invisible"}`}
           onClick={() => setSectionNo((prev) => (prev > 0 ? prev - 1 : prev))}
         >
-          Back
+          <svg width="10" height="10">
+            <path d="M10 0 L 0 5 L 10 10" stroke="black" />
+          </svg>
         </button>
         <button
-          className={sectionNo === 2 && "invisible"}
+          className={`${buttonStyle} ${sectionNo === 2 && "invisible"}`}
           onClick={() => setSectionNo((prev) => (prev < 2 ? prev + 1 : prev))}
         >
-          Next
+          <svg width="10" height="10">
+            <path d="M0 0 L 10 5 L 0 10" stroke="black" />
+          </svg>
         </button>
       </div>
     </div>
