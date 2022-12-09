@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import GitHubIcon from "./assets/GitHub.png";
-import LinkedInIcon from "./assets/LinkedIn.png";
 import Home from "./Home";
 import Skills from "./Skills";
 import Projects from "./Projects";
@@ -27,69 +25,34 @@ function App() {
           Andrew Burnie
         </h1>
       </header>
-      <div className="h-[550px] mb-10">{presentInfo(page)}</div>
+      <main className="h-[550px] mb-10">{presentInfo(page)}</main>
 
-      <table className="w-3/5 mx-auto text-center mb-10">
-        <tr>
-          <th>
-            <button
-              className={
-                page === "Home" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
-              }
-              onClick={() => setPage("Home")}
-            >
-              Home
-            </button>
-          </th>
-          <th>
-            <button
-              className={
-                page === "Skills"
-                  ? "bg-blue-500 text-white shadow"
-                  : "bg-gray-50"
-              }
-              onClick={() => setPage("Skills")}
-            >
-              Skills
-            </button>
-          </th>
-          <th>
-            <button
-              className={
-                page === "Projects"
-                  ? "bg-blue-500 text-white shadow"
-                  : "bg-gray-50"
-              }
-              onClick={() => setPage("Projects")}
-            >
-              Projects
-            </button>
-          </th>
-        </tr>
-      </table>
-
-      <table className="shadow w-screen md:w-3/5 bg-gray-50 mx-auto md:rounded-3xl h-12">
-        <tr>
-          <th>
-            <a href="https://github.com/Andrew47">
-              <img
-                className="h-8 object-contain mx-auto"
-                src={GitHubIcon}
-                alt="GitHub"
-              />
-            </a>
-          </th>
-          <th>
-            <a href="https://www.linkedin.com/in/apburnie/">
-              <img
-                className="h-8 object-contain mx-auto"
-                src={LinkedInIcon}
-                alt="LinkedIn"
-              />
-            </a>
-          </th>
-        </tr>
-      </table>
+      <footer>
+        <button
+          className={
+            page === "Home" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
+          }
+          onClick={() => setPage("Home")}
+        >
+          Home
+        </button>
+        <button
+          className={
+            page === "Skills" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
+          }
+          onClick={() => setPage("Skills")}
+        >
+          Skills
+        </button>
+        <button
+          className={
+            page === "Projects" ? "bg-blue-500 text-white shadow" : "bg-gray-50"
+          }
+          onClick={() => setPage("Projects")}
+        >
+          Projects
+        </button>
+      </footer>
     </div>
   );
 }

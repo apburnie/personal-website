@@ -2,11 +2,11 @@ export default function Skills() {
   return (
     <div className="info">
       <dl className="infoCell">
-        <dt className="font-bold mt-[100px]">Frontend</dt>
+        <dt>Frontend</dt>
         <dd>JavaScript, TypeScript, React, Vue</dd>
       </dl>
       <dl className="infoCell">
-        <dt className="font-bold mt-5">Backend</dt>
+        <dt>Backend</dt>
         <dd>
           <ul>
             <li>REST, RPC and GraphQL APIs</li>
@@ -17,7 +17,7 @@ export default function Skills() {
         </dd>
       </dl>
       <dl className="infoCell">
-        <dt className="font-bold mt-5">NFTs and DeFi</dt>
+        <dt>NFTs and DeFi</dt>
         <dd>
           <p>web3.js, MetaMask, OpenSea, IPFS, Truffle</p>
           <p>PhD with 6 publications</p>
