@@ -31,7 +31,9 @@ function App() {
           Andrew Burnie
         </h1>
       </header>
-      <main className="block">{presentInfo(page)}</main>
+      <main className="block" aria-live="assertive">
+        {presentInfo(page)}
+      </main>
 
       <footer className="flex justify-around block">
         <button

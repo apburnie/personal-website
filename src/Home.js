@@ -5,10 +5,14 @@ import LinkedInIcon from "./assets/LinkedIn.png";
 export default function Home() {
   return (
     <div className="info">
-      <img src={profileImage} alt="profile" className="mx-auto" />
-      <h2 className="text-xl my-2 ">Senior UI Engineer</h2>
-      <h3 className="text-lg my-1">Frontend - Fullstack</h3>
-      <h4 className="text-base ">PhD in Computer Science</h4>
+      <img
+        src={profileImage}
+        alt="what Andrew looks like"
+        className="mx-auto"
+      />
+      <p className="text-xl my-2 ">Senior UI Engineer</p>
+      <p className="text-lg my-1">Frontend - Fullstack</p>
+      <p className="text-base ">PhD in Computer Science</p>
       <p className="mt-5">
         <b>Email:</b> apburnie@hotmail.co.uk
       </p>
