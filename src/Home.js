@@ -12,28 +12,26 @@ export default function Home() {
       <p className="mt-5">
         <b>Email:</b> apburnie@hotmail.co.uk
       </p>
-      <table className="w-full bg-gray-50 mx-auto mt-5">
-        <tr>
-          <th>
-            <a href="https://github.com/Andrew47">
-              <img
-                className="h-8 object-contain mx-auto"
-                src={GitHubIcon}
-                alt="GitHub"
-              />
-            </a>
-          </th>
-          <th>
-            <a href="https://www.linkedin.com/in/apburnie/">
-              <img
-                className="h-8 object-contain mx-auto"
-                src={LinkedInIcon}
-                alt="LinkedIn"
-              />
-            </a>
-          </th>
-        </tr>
-      </table>
+      <div className="w-full bg-gray-50 mx-auto mt-5 flex justify-around">
+        <div>
+          <a href="https://github.com/Andrew47">
+            <img
+              className="h-8 object-contain mx-auto"
+              src={GitHubIcon}
+              alt="GitHub"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/apburnie/">
+            <img
+              className="h-8 object-contain mx-auto"
+              src={LinkedInIcon}
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
