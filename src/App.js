@@ -25,15 +25,15 @@ ${selectedPage === buttonLabel && "bg-blue-500 text-white "}`;
 function App() {
   const [page, setPage] = useState("Home");
   return (
-    <div>
-      <header className="w-screen">
-        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-screen sm:w-3/5 text-center mx-auto mt-4 mb-4 sm:rounded-3xl shadow">
+    <div className="flex flex-col justify-around h-screen">
+      <header className="w-screen block">
+        <h1 className="text-3xl font-extrabold p-3 bg-gray-50 w-screen sm:w-3/5 text-center mx-auto sm:rounded-3xl shadow">
           Andrew Burnie
         </h1>
       </header>
-      <main className="h-[550px] mb-10">{presentInfo(page)}</main>
+      <main className="block">{presentInfo(page)}</main>
 
-      <footer className="flex justify-around">
+      <footer className="flex justify-around block">
         <button
           className={buttonStyle(page, "Home")}
           onClick={() => setPage("Home")}

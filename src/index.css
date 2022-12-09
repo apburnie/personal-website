@@ -11,7 +11,7 @@ body {
 }
 
 .info {
-  @apply bg-gray-50 w-screen md:w-3/5 lg:w-2/5 mx-auto text-center p-5 h-[550px] md:rounded-lg flex flex-col justify-around;
+  @apply bg-gray-50 w-screen md:w-3/5 lg:w-2/5 mx-auto text-center p-5 h-[70vh]  md:rounded-lg flex flex-col justify-around;
 }
 
 .infoCell {
