@@ -1,7 +1,13 @@
+import React, { useState } from "react";
+
 export default function Projects() {
+  const [sectionNo, setSectionNo] = useState(0);
+
   return (
-    <div className="info">
-      <section className="infoCell">
+    <div className="info relative">
+      <section
+        className={sectionNo === 0 ? "infoCell" : "infoCell hidden sm:block"}
+      >
         <h2 className="font-bold">Sui Explorer</h2>
         <p>
           Built using React, TypeScript and Tailwind. This provided users with
@@ -10,7 +16,9 @@ export default function Projects() {
           300 million fund raising.
         </p>
       </section>
-      <section className="infoCell">
+      <section
+        className={sectionNo === 1 ? "infoCell" : "infoCell hidden sm:block"}
+      >
         <h2 className="font-bold mt-5">Mattereum Asset Passports</h2>
         <p>
           Applied Node.js, React and TypeScript asynchronous programming to
@@ -22,13 +30,29 @@ export default function Projects() {
           OpenSea.
         </p>
       </section>
-      <section className="infoCell">
+      <section
+        className={sectionNo === 2 ? "infoCell" : "infoCell hidden sm:block"}
+      >
         <h2 className="font-bold mt-5">Conversational AI Assistant UI</h2>
         <p>
           Built Conversational AI assistant for Wluper that led to a contract
           with Ocado.
         </p>
       </section>
+      <div className="absolute bottom-0 left-0 right-0 sm:hidden w-full flex justify-around">
+        <button
+          className={sectionNo === 0 && "invisible"}
+          onClick={() => setSectionNo((prev) => (prev > 0 ? prev - 1 : prev))}
+        >
+          Back
+        </button>
+        <button
+          className={sectionNo === 2 && "invisible"}
+          onClick={() => setSectionNo((prev) => (prev < 2 ? prev + 1 : prev))}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
