@@ -1,0 +1,65 @@
+---
+import Contact from "../react/components/Contact/Contact.tsx";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/profile.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Andrew Burnie is a specialist in building User Interfaces using JavaScript, React, Vue, HTML, CSS and TypeScript in the Frontend and GraphQL, REST and RPC APIs in the Backend"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <Contact />
+  </body>
+</html>
+<style is:global>
+  :root {
+    font-family: "Lato", sans-serif;
+    color: #29363d;
+    font-size: 1.2rem;
+    background-color: #04112f;
+    background-image: linear-gradient(to bottom, #7daa9a, #04112f);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>

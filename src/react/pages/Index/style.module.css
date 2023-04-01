@@ -1,0 +1,66 @@
+@keyframes moveUp {
+  0% {
+    bottom: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    bottom: 100px;
+    transform: scale(2);
+  }
+}
+
+.HomeContent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.Profile {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.photo {
+  border-style: solid;
+  border-radius: 100px;
+  background-image: linear-gradient(to bottom, #d4ab91, #c68f6c);
+  height: 10rem;
+  width: 10rem;
+}
+
+.bubble {
+  position: relative;
+  animation: moveUp;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.75, 0.2, 0.75, 0.2);
+  padding-right: -10rem;
+}
+
+.Introbox {
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+  padding-left: 5.5rem;
+  padding-right: 1rem;
+  margin-left: -7rem;
+  z-index: -1;
+  background-image: linear-gradient(to bottom, #aeb4b7, #85a0ad);
+  width: min(30rem, 80vw);
+  line-height: 1.5;
+}
+
+.emphasis {
+  font-weight: 900;
+  color: black;
+}
+
+.Options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10rem;
+}

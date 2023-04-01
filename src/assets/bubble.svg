@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg32"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs36" />
+  <g
+     id="g38">
+    <circle
+       style="fill:none;stroke:#2c283e;stroke-width:1.04118;stroke-opacity:1"
+       id="path350"
+       cx="16.135593"
+       cy="16.135593"
+       r="15.456424" />
+    <ellipse
+       style="fill:none;stroke:#2c283e;stroke-width:0.389692;stroke-dasharray:none;stroke-opacity:1"
+       id="path2535"
+       cx="12.382066"
+       cy="4.2183814"
+       rx="1.5897615"
+       ry="1.4260774" />
+    <ellipse
+       style="fill:none;stroke:#2c283e;stroke-width:0.389692;stroke-dasharray:none;stroke-opacity:1"
+       id="path2535-3"
+       cx="17.835089"
+       cy="27.903284"
+       rx="1.5897615"
+       ry="1.4260774" />
+    <path
+       style="fill:none;stroke:#2c283e;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+       d="M 9.4525649,6.4047968 C 9.3095769,5.8675463 7.7994834,5.8043404 6.3003352,6.9740199 4.8011871,8.1436994 3.3150932,10.545475 2.704254,12.679387 2.0934149,14.813299 2.3570768,16.677836 2.8361176,16.440421 3.3151584,16.203005 4.0102667,13.864434 4.7653946,12.267915 5.5205226,10.671396 6.3354773,9.818134 7.3542991,8.8857277 8.3731209,7.9533214 9.5955528,6.9420473 9.4525649,6.4047968 Z"
+       id="path2786" />
+    <path
+       style="fill:none;stroke:#2c283e;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.88988,26.535423 c 0.743988,0.127994 2.233521,0.384251 3.870237,-0.583611 1.636716,-0.967861 3.418423,-3.159328 4.297759,-5.197335 0.879337,-2.038006 0.856857,-3.920959 0.351336,-3.746909 -0.505521,0.174051 -1.494665,2.404227 -2.448214,3.890779 -0.953548,1.486552 -1.871155,2.228309 -3.001092,3.022426 -1.129938,0.794116 -2.471916,1.64035 -3.142963,2.063503 -0.671047,0.423153 -0.671051,0.423153 0.07294,0.551147 z"
+       id="path2786-4" />
+  </g>
+</svg>

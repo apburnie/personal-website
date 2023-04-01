@@ -1,0 +1,45 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #020817;
+  color: #e5ffed;
+  text-shadow: 0 0 1px #e5ffed;
+  border-radius: 5px;
+  line-height: 2;
+}
+
+.MiddleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90%;
+}
+
+.ContentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.horizontalBlock {
+  height: 5%;
+  width: 100%;
+  border: solid 1px #160704;
+}
+
+.sideBlock {
+  height: 100%;
+  width: 5%;
+  background: linear-gradient(to bottom, #832816, #571b0f);
+  border: solid 1px #160704;
+}
+
+.bottom {
+  background-color: #571b0f;
+}
+
+.top {
+  background-color: #832816;
+}
