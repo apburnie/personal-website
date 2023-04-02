@@ -10,7 +10,7 @@ export default function Index() {
         <img src={Bubble} className={style.bubble} />
         <img
           src="/profileLarge.png"
-          alt="Andrew Burnie's Photo"
+          alt="Photo of Andrew Burnie The UI Noodler"
           height="100%"
           className={style.photo}
         />
@@ -19,8 +19,9 @@ export default function Index() {
       <div className={style.Introbox}>
         <div>
           <p>
-            I&rsquo;m <span className={style.emphasis}>Andrew Burnie</span> and
-            I deliver User Interfaces that transform the value of companies{" "}
+            I&rsquo;m{" "}
+            <span className={style.emphasis}>Andrew Burnie The UI Noodler</span>{" "}
+            and I deliver User Interfaces that transform the value of companies{" "}
           </p>
           <p>
             Whether you&rsquo;re in North America or East Asia, and are looking
@@ -28,7 +29,8 @@ export default function Index() {
             can help you to turn your vision into reality.
           </p>
           <p className={style.emphasis}>
-            Click a link to find out more or reach out using the below details
+            Use the below contact details to reach out or click on the links for
+            details on services offered and examples of past projects
           </p>
         </div>
       </div>

@@ -1,11 +1,5 @@
 ---
 import Contact from "../react/components/Contact/Contact.tsx";
-
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -21,15 +15,7 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Andrew Burnie is a specialist in building User Interfaces using JavaScript, React, Vue, HTML, CSS and TypeScript in the Frontend and GraphQL, REST and RPC APIs in the Backend"
-    />
-    <title>{title}</title>
-    <meta
-      name="google-site-verification"
-      content="dZaWf8U7xL8E4A_hy66sky9ILw80mjWLJ7W6HjM3028"
-    />
+    <slot name="head" />
   </head>
   <body>
     <slot />

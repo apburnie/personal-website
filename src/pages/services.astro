@@ -1,8 +1,17 @@
 ---
-import Layout from "../layouts/NonHome.astro";
+import Layout from "../layouts/layout.astro";
 import Services from "../react/pages/Services/Services.tsx";
+import Header from "../react/components/Header/Header.tsx";
 ---
 
-<Layout pagename="Services">
+<Layout>
+  <meta
+    name="description"
+    content="Services provided by Andrew Burnie the UI Noodler"
+    slot="head"
+  />
+  <title slot="head">The UI Noodler Services</title>
+  <Header currentPage="Services" />
+
   <Services />
 </Layout>
