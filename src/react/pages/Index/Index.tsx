@@ -20,8 +20,10 @@ export default function Index() {
         <div>
           <p>
             I&rsquo;m{" "}
-            <span className={style.emphasis}>Andrew Burnie The UI Noodler</span>{" "}
-            and I deliver User Interfaces that transform the value of companies{" "}
+            <span className={style.emphasis}>
+              Andrew Burnie The UI Noodler.
+            </span>{" "}
+            I deliver User Interfaces that transform the value of companies.{" "}
           </p>
           <p>
             Whether you&rsquo;re in North America or East Asia, and are looking
