@@ -13,7 +13,7 @@
 			};
 
 			p.setup = () => {
-				p.createCanvas(300, 300, p.WEBGL);
+				p.createCanvas(230, 230, p.WEBGL);
 			};
 
 			p.draw = () => {
@@ -89,6 +89,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		padding: 1rem;
+		max-width: 80vw;
 	}
 
 	.Text {

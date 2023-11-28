@@ -31,7 +31,8 @@
 
 <style>
 	.Client {
-		margin: 1rem;
+		margin-bottom: 1rem;
+		width: min(calc(50rem - 20px), 90vw);
 	}
 	h3 {
 		margin: 0;

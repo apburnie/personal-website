@@ -26,7 +26,6 @@
 	}
 
 	.Text {
-		width: 30rem;
 		margin: auto;
 	}
 
