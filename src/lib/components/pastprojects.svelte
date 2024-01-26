@@ -50,7 +50,7 @@
 	<p>
 		This project shows how WebGL can be used with React to create 3D immersive experiences. For
 		further details, see{' '}
-		<Link href="https://github.com/Andrew47/ocean-builder" label="GitHub" />
+		<Link href="https://github.com/apburnie/ocean-builder" label="GitHub" />
 		The following image is an example 3D model built using the tool:
 	</p>
 
@@ -61,7 +61,7 @@
 	/>
 </Client>
 
-<a href="https://github.com/Andrew47" target="_blank" rel="noreferrer" class="GitHubLink"
+<a href="https://github.com/apburnie" target="_blank" rel="noreferrer" class="GitHubLink"
 	>See GitHub for more examples →</a
 >
 
