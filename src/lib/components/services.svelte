@@ -54,7 +54,7 @@
 		<div>
 			<h3>Frontend</h3>
 			<div>CSS, SASS, Tailwind and CSS-in-JS</div>
-			<div>JavaScript and TypeScript</div>
+			<div>JavaScript, TypeScript and WebAssembly</div>
 			<div>React, Svelte and Vue</div>
 			<div>Semantic HTML and Design (Figma)</div>
 			<div>Visualizations and animations (D3.js / WebGL)</div>
@@ -64,7 +64,7 @@
 			<h3>Backend</h3>
 			<div>SQL and NoSQL</div>
 			<div>REST, RPC, GraphQL and JSON APIs</div>
-			<div>Node.js and Python</div>
+			<div>Rust, Node.js and Python</div>
 		</div>
 	</div>
 

@@ -3,10 +3,20 @@
 	import Link from '$lib/components/Link.svelte';
 </script>
 
-<Client author="Fractal" id="Fractal"
+<Client author="html_compile" id="htmlCompile"
+	><p>
+		I used metaprogramming and macros to create an open-source template engine for generating HTML
+		strings within Rust for use with static websites. This has 5 stars on GitHub: <Link
+			href="https://github.com/apburnie/html_compile"
+			label="github.com/apburnie/html_compile"
+		/>
+	</p>
+</Client>
+
+<Client author="August (previously called Fractal)" id="Fractal"
 	><p>
 		Building dashboards that enable deposits and withdrawals in a variety of ERC-20 tokens across
-		multiple EVM-compatible Blockchains. Fractal has raised USD 6 million in seed funding.
+		multiple EVM-compatible Blockchains. August has raised USD 6 million in seed funding.
 	</p>
 </Client>
 
