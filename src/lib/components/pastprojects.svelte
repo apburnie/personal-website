@@ -24,7 +24,7 @@
 	><p>
 		<span>This </span>
 		<Link
-			href="https://github.com/MystenLabs/sui/tree/ModuleSearch/apps/explorer"
+			href="https://github.com/MystenLabs/sui/tree/devnet-0.21.0/apps/explorer"
 			label="opensource codebase"
 		/>
 		<span> enables users to observe activity on the Sui Network at </span>
