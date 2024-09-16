@@ -10,69 +10,60 @@
 	$: activeIndex = sectionList.findIndex((el) => el === activeSection);
 </script>
 
-<aside
-	on:mouseenter={() => {
-		document.body.style.overflow = 'hidden';
-	}}
-	on:mouseleave={() => {
-		document.body.style.overflow = 'visible';
-	}}
->
-	<nav aria-label="Main Menu">
-		<ul>
-			{#each sectionList as section, i}
-				<li>
-					<a
-						href={`#${section}`}
-						class={`${activeSection === section && 'active'} ${i < activeIndex && 'beforeActive'}`}
-						aria-current={activeSection === section}
-						>{convertCamelCaseToSentence(section)}
-					</a>
-				</li>
-			{/each}
-		</ul>
-	</nav>
-</aside>
+<nav aria-label="Main Menu">
+	<ul>
+		{#each sectionList as section, i}
+			<li class={`${activeSection === section && 'active'} ${i < activeIndex && 'beforeActive'}`}>
+				<a
+					href={`#${section}`}
+					class={activeSection === section && 'active'}
+					aria-current={activeSection === section}
+					>{convertCamelCaseToSentence(section)}
+				</a>
+			</li>
+		{/each}
+	</ul>
+</nav>
 
 <style>
-	aside {
-		z-index: 4;
+	nav {
+		width: 100%;
+		margin-top: 1rem;
 	}
 
 	ul {
+		width: 100%;
 		list-style-type: none;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		gap: 0;
 		padding: 0;
 		margin: 0;
 	}
 
 	a {
-		font-weight: 400;
+		font-weight: 200;
 		text-decoration: none;
-		color: #45474d;
+		color: #0dc4f2;
 		display: flex;
 		gap: calc(0.5rem + 12px);
 		align-items: center;
 		height: 3rem;
 		width: 10rem;
+		margin-left: auto;
+		margin-right: 1rem;
 	}
 
-	a:before {
-		width: 12px;
-		background: transparent;
-		height: 3rem;
-		content: '';
-		display: block;
+	li {
+		flex-grow: 1;
 	}
 
-	a.beforeActive:before {
-		width: 12px;
-		background: #1f6666;
-		height: 3rem;
-		content: '';
-		display: block;
+	li.beforeActive {
+		background: #ff9d0033;
+	}
+
+	li.active {
+		background-image: linear-gradient(to right, #ff9d0033, #ff9d00 50%, transparent 100%);
 	}
 
 	a.active:before {
@@ -83,19 +74,20 @@
 		border-bottom-left-radius: 50px;
 	}
 
-	.active {
-		color: #103b84;
-		font-weight: 700;
-		border: 3px solid #1f6666;
+	a.active {
+		color: #00ccff;
+		font-weight: 500;
+		border: 2px solid #00ccff;
 		border-bottom-left-radius: 50px;
 		border-bottom-right-radius: 10px;
 		border-top-right-radius: 25px;
 		padding-right: 10px;
 		gap: 0.5rem;
+		background: black;
 	}
 
 	a:hover {
-		color: #103b84;
-		font-weight: 700;
+		color: #00ceff;
+		font-weight: 400;
 	}
 </style>

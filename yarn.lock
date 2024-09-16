@@ -157,15 +157,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.44.0.tgz#961a5903c74139390478bdc808bcde3fc45ab7af"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
-"@fontsource/cabin@^5.0.15":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@fontsource/cabin/-/cabin-5.0.15.tgz#a894af4d432474f2bb878ad8df0e618dee1c5873"
-  integrity sha512-ap341ZlbsGf6vkvYZFM+DoQU7XoOqunohClW6eDup++2q2gA2xNU72pV6uK9oOcSqqcoyQL8YDQc89GvqSCdHw==
-
-"@fontsource/lobster-two@^5.0.17":
-  version "5.0.17"
-  resolved "https://registry.yarnpkg.com/@fontsource/lobster-two/-/lobster-two-5.0.17.tgz#55a1a0c6431ee3869611d14d5878e9fac789ad54"
-  integrity sha512-Xug7nZu0bY/Y2HI5sNm1QbzzMH7rOc5Y7zDI/+q5i96zIS3rfgoqrxewG0i/EdA2Gc7XLe3yzD0VsRZND7Q6PA==
+"@fontsource-variable/raleway@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/raleway/-/raleway-5.1.0.tgz#d3a3e7886ac10feab6425f2798f62f5f9334ea52"
+  integrity sha512-TtV3e3ZLfGu6XmqRDvZ0Q4cXlRs4Rwbxsc+Te3yMtJKRQgNS/OBRtLjztb3cCrZWTPvH7bKKWjtBlC8yuZWWVw==
 
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"

@@ -40,7 +40,6 @@
 </script>
 
 <header>
-	<Logo />
 	<div class="MobileNavContainer">
 		<button
 			on:click={openCloseMenu}
@@ -101,16 +100,14 @@
 	}
 
 	.Content {
-		width: 50rem;
+		width: 75rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		background: transparent;
 		margin: auto;
-		background-image: linear-gradient(to right, #cfe6e6, #daf2f2 100%);
-		border-radius: 10px;
-		color: #0c1a1a;
-		box-shadow: 1px 1px #738080, 2px 2px #738080, 3px 3px #738080, 4px 4px #738080, 5px 5px #738080,
-			6px 6px #738080, 7px 7px #738080, 8px 8px #738080, 9px 9px #738080, 10px 10px #738080;
+		color: white;
+		font-size: 1.5rem;
 	}
 
 	/* Header */
@@ -124,8 +121,8 @@
 		align-items: center;
 		justify-content: start;
 		z-index: 2;
-		background-image: linear-gradient(to right, #408080, #408080 50%, #406080 80%, #406080 100%);
 		padding-bottom: 10px;
+		background-image: linear-gradient(to right, #00151a, #00151a 50%, #002a33 80%, #002a33 100%);
 	}
 
 	/* Mobile Nav bar present only on smaller screens */
@@ -133,7 +130,7 @@
 	.MobileNavContainer {
 		position: relative;
 		right: 0;
-		height: 2rem;
+		height: 1rem;
 		width: 100vw;
 	}
 
@@ -144,44 +141,35 @@
 		align-items: center;
 		text-decoration: none;
 		padding: 0.5rem;
-		color: black;
 		width: 10rem;
 		height: 2rem;
 		text-align: center;
-		box-shadow: 1px 1px #738080, 2px 2px #738080, 3px 3px #738080, 4px 4px #738080, 5px 5px #738080;
 		position: relative;
 		border-radius: 5px;
 		cursor: pointer;
 		border-radius: 10px;
-		color: #0c1a1a;
 		margin-left: 10px;
-		background: #cfdae6;
+		background: none;
+		color: #00ceff;
+		border: 1px solid #00ceff;
 	}
 	.MobileNavContainer button:hover {
 		font-weight: bolder;
-		box-shadow: 1px 1px #738080, 2px 2px #738080, 3px 3px #738080, 4px 4px #738080;
-		bottom: -1px;
-		left: 1px;
 	}
 
 	.MobileNavContainer button.active {
 		font-weight: bolder;
-		border-left: none;
 		border-bottom: none;
-		bottom: -5px;
-		left: 5px;
-		box-shadow: none;
-		color: black;
-		background: #cfdae6;
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
+		background: #00ceff;
+		color: #002a33;
 	}
 
 	.MobileNav {
 		position: fixed;
 		border-radius: 15px;
 		border-top-left-radius: 0px;
-		left: 5px;
 		width: calc(100vw - 30px);
 		background: #cfdae6;
 		margin-left: 10px;
@@ -190,16 +178,9 @@
 	/* Desktop Nav bar present only on larger screens */
 
 	.DesktopNav {
-		position: fixed;
-		left: 0;
-		top: calc(10vh + 2rem + 5px + 1rem);
-		width: 24rem;
+		width: 100%;
 		z-index: 3;
 		display: none;
-		border-top-right-radius: 50px;
-		border-bottom-right-radius: 50px;
-		padding: 1rem;
-		background: #cfdae6;
 	}
 
 	/* Enforces presence / absence of nav bars */
