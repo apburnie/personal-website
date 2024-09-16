@@ -6,11 +6,8 @@
 	import Services from '$lib/components/services.svelte';
 	import PastProjects from '$lib/components/pastprojects.svelte';
 	import Contact from '$lib/components/contact.svelte';
-	import Logo from '$lib/components/logo.svelte';
 
-	import Navigation from '$lib/components/navigation.svelte';
-
-	import { convertCamelCaseToSentence } from '$lib/utils.ts';
+	import Navigation from '$lib/components/Navigation/index.svelte';
 
 	let activeSection = 'aboutMe';
 
@@ -31,174 +28,36 @@
 	};
 
 	const sectionList = Object.keys(sectionObject);
-
-	let isMenuOpen = false;
-
-	function openCloseMenu() {
-		isMenuOpen = !isMenuOpen;
-	}
 </script>
 
-<header>
-	<div class="MobileNavContainer">
-		<button
-			on:click={openCloseMenu}
-			class={isMenuOpen && 'active'}
-			type="button"
-			aria-label={isMenuOpen ? 'Close Main Menu' : 'Open Main Menu'}
-			aria-expanded={isMenuOpen}
-			aria-haspopup="menu"
-		>
-			{isMenuOpen ? 'Close Menu' : 'Open Menu'}
-		</button>
-		{#if isMenuOpen}
-			<div class="MobileNav">
-				<Navigation {activeSection} />
-			</div>
-		{/if}
-	</div>
-
-	<div class="DesktopNav">
-		<Navigation {activeSection} />
-	</div>
-</header>
+<Navigation {activeSection} {sectionList} />
 
 <main>
-	<div id="HomePageContainer">
-		{#each sectionList as section}
-			<div id={section} on:mouseenter={onSection(section)}>
-				<div class="Placeholder" />
-				<div class="Content">
-					<h2>{convertCamelCaseToSentence(section)}</h2>
-					<svelte:component this={sectionObject[section]} />
-				</div>
+	{#each sectionList as section}
+		<div class="Content" id={section} on:mouseenter={onSection(section)}>
+			<div class="Content">
+				<svelte:component this={sectionObject[section]} />
 			</div>
-		{/each}
-	</div>
+		</div>
+	{/each}
 </main>
 
 <style>
-	/* Main Content */
-	#HomePageContainer > div {
+	main {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: start;
-		align-items: center;
-		position: relative;
-		z-index: 1;
-		padding: 1rem;
-	}
-
-	#HomePageContainer > div > div {
-		overflow: auto;
-	}
-
-	.Placeholder {
-		width: 25rem;
-		height: calc(10vh + 2rem + 5px + 3rem);
-		visibility: hidden;
+		flex-direction: column;
+		margin-top: 5rem;
 	}
 
 	.Content {
-		width: 75rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background: transparent;
-		margin: auto;
 		color: white;
 		font-size: 1.5rem;
-	}
-
-	/* Header */
-
-	header {
-		width: 100vw;
-		display: flex;
-		flex-wrap: wrap;
-		position: fixed;
-		top: 0;
-		align-items: center;
-		justify-content: start;
-		z-index: 2;
-		padding-bottom: 10px;
-		background-image: linear-gradient(to right, #00151a, #00151a 50%, #002a33 80%, #002a33 100%);
-	}
-
-	/* Mobile Nav bar present only on smaller screens */
-
-	.MobileNavContainer {
-		position: relative;
-		right: 0;
-		height: 1rem;
-		width: 100vw;
-	}
-
-	.MobileNavContainer button {
-		display: flex;
-		border: none;
-		justify-content: center;
-		align-items: center;
-		text-decoration: none;
-		padding: 0.5rem;
-		width: 10rem;
-		height: 2rem;
-		text-align: center;
-		position: relative;
-		border-radius: 5px;
-		cursor: pointer;
-		border-radius: 10px;
-		margin-left: 10px;
-		background: none;
-		color: #00ceff;
-		border: 1px solid #00ceff;
-	}
-	.MobileNavContainer button:hover {
-		font-weight: bolder;
-	}
-
-	.MobileNavContainer button.active {
-		font-weight: bolder;
-		border-bottom: none;
-		border-bottom-left-radius: 0px;
-		border-bottom-right-radius: 0px;
-		background: #00ceff;
-		color: #002a33;
-	}
-
-	.MobileNav {
-		position: fixed;
-		border-radius: 15px;
-		border-top-left-radius: 0px;
-		width: calc(100vw - 30px);
-		background: #cfdae6;
-		margin-left: 10px;
-	}
-
-	/* Desktop Nav bar present only on larger screens */
-
-	.DesktopNav {
-		width: 100%;
-		z-index: 3;
-		display: none;
-	}
-
-	/* Enforces presence / absence of nav bars */
-
-	@media only screen and (min-width: 1200px) {
-		.MobileNavContainer {
-			display: none;
-		}
-		.DesktopNav {
-			display: block;
-		}
-
-		header {
-			background-image: none;
-		}
-
-		#HomePageContainer > div {
-			min-height: 100vh;
-		}
+		height: calc(100vh - 5rem);
+		width: 99vw;
+		flex-grow: 1;
 	}
 </style>

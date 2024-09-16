@@ -2,10 +2,9 @@
 	import { convertCamelCaseToSentence } from '$lib/utils.ts';
 
 	export let activeSection;
+	export let sectionList;
 
 	let activeIndex;
-
-	const sectionList = ['AboutMe', 'Services', 'PastProjects', 'Contact'];
 
 	$: activeIndex = sectionList.findIndex((el) => el === activeSection);
 </script>
@@ -28,7 +27,8 @@
 <style>
 	nav {
 		width: 100%;
-		margin-top: 1rem;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: saturate(180%) blur(10px);
 	}
 
 	ul {
@@ -46,7 +46,6 @@
 		text-decoration: none;
 		color: #0dc4f2;
 		display: flex;
-		gap: calc(0.5rem + 12px);
 		align-items: center;
 		height: 3rem;
 		width: 10rem;
@@ -63,11 +62,11 @@
 	}
 
 	li.active {
-		background-image: linear-gradient(to right, #ff9d0033, #ff9d00 50%, transparent 100%);
+		background-image: linear-gradient(to right, #ff9d0033, #ff9d00 50%, transparent 88%);
 	}
 
-	a.active:before {
-		width: 24px;
+	a:before {
+		width: 2rem;
 		height: 24px;
 		content: '';
 		display: block;
