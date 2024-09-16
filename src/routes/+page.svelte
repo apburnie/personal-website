@@ -57,7 +57,10 @@
 		color: white;
 		font-size: 1.5rem;
 		height: calc(100vh - 5rem);
-		width: 99vw;
+		width: 90vw;
+		margin-left: 5vw;
 		flex-grow: 1;
+		justify-content: center;
+		overflow: hidden;
 	}
 </style>
