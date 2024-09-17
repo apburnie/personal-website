@@ -3,12 +3,16 @@
 		<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
 		<author-slogan>
 			<author-name>Andrew Burnie</author-name>
-			<slogan-text>Fast Frontends Delivered Fast</slogan-text>
+			<slogan-text>Fast Frontends Delivered</slogan-text>
 		</author-slogan>
 	</row-one>
 
 	<div class="Text">
-		<p>I deliver low-latency frontends in under 6 weeks for DeFi, Cryptoasset and AI companies.</p>
+		<p>
+			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
+		</p>
+		<p>Specialist expertise in DeFi, Cryptoassets and AI</p>
+		<p>Programming since 2015 with PhD in Computer Science from UCL</p>
 		<p>
 			Scroll down to find out more about the services provided, past successes and contact details
 		</p>

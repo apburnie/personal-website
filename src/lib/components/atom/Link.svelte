@@ -9,11 +9,12 @@
 
 <style>
 	a {
-		color: #7436b3;
+		color: #99ebff;
 		text-decoration: none;
+		font-weight: 500;
 	}
 
 	a:hover {
-		text-decoration: underline;
+		color: #00ceff;
 	}
 </style>

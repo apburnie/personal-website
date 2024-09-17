@@ -4,7 +4,7 @@
 
 	import AboutMe from '$lib/components/organism/AboutMe.svelte';
 	import Services from '$lib/components/organism/Services.svelte';
-	import PastProjects from '$lib/components/organism/Successes.svelte';
+	import Successes from '$lib/components/organism/Successes.svelte';
 	import Contact from '$lib/components/organism/Social.svelte';
 	import Navigation from '$lib/components/organism/Navigation.svelte';
 
@@ -22,7 +22,7 @@
 	const sectionObject = {
 		AboutMe,
 		Services,
-		PastProjects,
+		Successes,
 		Contact
 	};
 
@@ -55,7 +55,7 @@
 		background: transparent;
 		color: white;
 		font-size: 1.5rem;
-		height: 100vh;
+		min-height: 100vh;
 		width: 98vw;
 		padding-left: 5vw;
 		padding-right: 5vw;

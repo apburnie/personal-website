@@ -7,9 +7,9 @@
 <div>
 	<p>
 		I build fast, beautiful websites that work from smartphones to desktop and that interact with
-		any blockchain or database
+		any blockchain or database. The following are the leading-edge technologies I use to meet tight
+		deadlines:
 	</p>
-	<p>These are the leading-edge technologies I use to meet tight timelines:</p>
 </div>
 <category-container>
 	<SmartBox heading="Macro: Layout and Architecture" id="macro">
