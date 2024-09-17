@@ -10,7 +10,7 @@
 	<div class="Text">
 		<p>I deliver low-latency frontends in under 6 weeks for DeFi, Cryptoasset and AI companies.</p>
 		<p>
-			Scroll down to find out more about the services I provide, past successes and contact details
+			Scroll down to find out more about the services provided, past successes and contact details
 		</p>
 	</div>
 </div>

@@ -2,12 +2,11 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
-	import AboutMe from '$lib/components/aboutMe.svelte';
-	import Services from '$lib/components/services.svelte';
-	import PastProjects from '$lib/components/pastprojects.svelte';
-	import Contact from '$lib/components/contact.svelte';
-
-	import Navigation from '$lib/components/Navigation/index.svelte';
+	import AboutMe from '$lib/components/organism/AboutMe.svelte';
+	import Services from '$lib/components/organism/Services.svelte';
+	import PastProjects from '$lib/components/organism/Successes.svelte';
+	import Contact from '$lib/components/organism/Social.svelte';
+	import Navigation from '$lib/components/organism/Navigation.svelte';
 
 	let activeSection = 'aboutMe';
 
@@ -56,11 +55,13 @@
 		background: transparent;
 		color: white;
 		font-size: 1.5rem;
-		height: calc(100vh - 5rem);
-		width: 90vw;
-		margin-left: 5vw;
+		height: 100vh;
+		width: 98vw;
+		padding-left: 5vw;
+		padding-right: 5vw;
 		flex-grow: 1;
 		justify-content: center;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 </style>

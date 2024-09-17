@@ -1,10 +1,34 @@
 <script>
 	import { onMount } from 'svelte';
+	import Link from '$lib/components/atom/Link.svelte';
 
 	let x = 0;
 	let img;
 
+	function decodeEmail(emailString) {
+		if (!emailString) return '<div/>';
+
+		try {
+			const [firstPT, secondPT] = atob(emailString).toLowerCase().split('@');
+
+			return `<span>${firstPT}</span><!---gahahehanoho--><span style="display: none">agweewgewgewgew</span><span>@</span><span>${secondPT}</span>`;
+		} catch {
+			return '<div/>';
+		}
+	}
+
 	onMount(async () => {
+		const emailHTML = document.querySelectorAll('#email');
+
+		emailHTML.forEach((email) => {
+			if (email === undefined || email.textContent === undefined) {
+				email.innerHTML = email.innerHTML;
+			}
+
+			email.style.display = 'block';
+			email.innerHTML = decodeEmail(email.textContent);
+		});
+
 		const p5 = (await import('p5')).default;
 
 		const sketch = (p) => {
@@ -49,24 +73,11 @@
 </script>
 
 <div class="Container">
-	<div class="Text">
-		<div>Here are some of the technologies I&apos;ve used:</div>
-		<div>
-			<h3>Frontend</h3>
-			<div>CSS, SASS, Tailwind and CSS-in-JS</div>
-			<div>JavaScript, TypeScript and WebAssembly</div>
-			<div>React, Svelte and Vue</div>
-			<div>Semantic HTML and Design (Figma)</div>
-			<div>Visualizations and animations (D3.js / WebGL)</div>
-			<div>EVM-compatible blockchains (ethers.js, wagmi and viem)</div>
-		</div>
-		<div>
-			<h3>Backend</h3>
-			<div>SQL and NoSQL</div>
-			<div>REST, RPC, GraphQL and JSON APIs</div>
-			<div>Rust, Node.js and Python</div>
-		</div>
-	</div>
+	<div>Email</div>
+	<div id="email">YXBidXJuaWVAaG90bWFpbC5jby51aw==</div>
+
+	<div>LinkedIn</div>
+	<Link href="https://www.linkedin.com/in/apburnie/" label="linkedin.com/in/apburnie/" />
 
 	<div class="Image">
 		<div id="p5div" />
@@ -81,27 +92,9 @@
 </div>
 
 <style>
-	.Image {
-		margin: auto;
-	}
-
 	.Container {
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		padding: 1rem;
-		max-width: 80vw;
-	}
-
-	.Text {
-		margin: auto;
-	}
-
-	.Text div div {
-		padding-left: 1rem;
-	}
-
-	.Attribution {
-		font-size: 0.75rem;
-		color: #455454;
 	}
 </style>

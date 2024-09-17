@@ -1,6 +1,6 @@
 <script>
-	import NavigationDesktop from '$lib/components/Navigation/desktop.svelte';
-	import NavigationMobile from '$lib/components/Navigation/mobile.svelte';
+	import NavigationDesktop from '$lib/components/molecule/NavigationDesktop.svelte';
+	import NavigationMobile from '$lib/components/molecule/NavigationMobile.svelte';
 
 	export let activeSection;
 	export let sectionList;
