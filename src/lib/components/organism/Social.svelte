@@ -72,29 +72,38 @@
 	});
 </script>
 
-<div class="Container">
-	<div>Email</div>
-	<div id="email">YXBidXJuaWVAaG90bWFpbC5jby51aw==</div>
+<h2>Contact</h2>
+<flex-box>
+	<div class="Container">
+		<div>Email</div>
+		<div id="email">YXBidXJuaWVAaG90bWFpbC5jby51aw==</div>
 
-	<div>LinkedIn</div>
-	<Link href="https://www.linkedin.com/in/apburnie/" label="linkedin.com/in/apburnie/" />
+		<div>LinkedIn</div>
+		<Link href="https://www.linkedin.com/in/apburnie/" label="linkedin.com/in/apburnie" />
+		<div>Reddit</div>
+		<Link href="https://www.reddit.com/user/andrewburnie/" label="u/andrewburnie" />
+		<div>GitHub</div>
+		<Link href="https://github.com/apburnie" label="github.com/apburnie" />
+		<div>Telegram and Discord</div>
+		<div>apburnie</div>
+	</div>
 
 	<div class="Image">
 		<div id="p5div" />
-		<div class="Attribution">
-			<div>Source for world map:</div>
-			<a href="https://commons.wikimedia.org/wiki/File:World_map_blank_without_borders.svg"
-				>Crates</a
-			>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia
-			Commons
-		</div>
 	</div>
-</div>
+</flex-box>
+
+<div>If you are in London UK feel free to reach out for a chat IRL &#9749;</div>
 
 <style>
 	.Container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		padding: 1rem;
+	}
+
+	flex-box {
+		display: flex;
+		flex-wrap: wrap;
 	}
 </style>
