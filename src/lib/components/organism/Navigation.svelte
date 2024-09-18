@@ -18,7 +18,6 @@
 
 <style>
 	/* Header */
-
 	header {
 		width: 100vw;
 		display: flex;
@@ -41,23 +40,17 @@
 	}
 
 	/* Desktop Nav bar present only on larger screens */
-
 	.DesktopNav {
 		display: none;
 	}
 
 	/* Enforces presence / absence of nav bars */
-
 	@media only screen and (min-width: 1200px) {
 		.MobileNav {
 			display: none;
 		}
 		.DesktopNav {
 			display: block;
-		}
-
-		header {
-			background-image: none;
 		}
 	}
 </style>

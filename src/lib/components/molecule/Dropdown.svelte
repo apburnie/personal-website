@@ -9,7 +9,7 @@
 	}
 </script>
 
-<div class="Dropdown">
+<dropdown-container>
 	<h3>
 		<button
 			class={isOpen && 'isOpen'}
@@ -27,10 +27,10 @@
 		</button>
 	</h3>
 	<div {id} class={!isOpen && 'hidden'}><slot /></div>
-</div>
+</dropdown-container>
 
 <style>
-	.Dropdown {
+	dropdown-container {
 		margin-bottom: 1rem;
 		width: min(calc(25rem - 20px), 90vw);
 	}
@@ -54,7 +54,7 @@
 		cursor: pointer;
 	}
 
-	.Dropdown div {
+	dropdown-container div {
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
 		position: absolute;

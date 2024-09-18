@@ -33,11 +33,9 @@
 
 <main>
 	{#each sectionList as section}
-		<div class="Content" id={section} on:mouseenter={onSection(section)}>
-			<div class="Content">
-				<svelte:component this={sectionObject[section]} />
-			</div>
-		</div>
+		<content-container id={section} on:mouseenter={onSection(section)}>
+			<svelte:component this={sectionObject[section]} />
+		</content-container>
 	{/each}
 </main>
 
@@ -48,12 +46,11 @@
 		margin-top: 5rem;
 	}
 
-	.Content {
+	content-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background: transparent;
-		color: white;
 		font-size: 1.5rem;
 		min-height: 100vh;
 		width: 98vw;

@@ -49,14 +49,12 @@
 <style>
 	button {
 		display: flex;
-		border: none;
 		justify-content: center;
 		align-items: center;
 		text-decoration: none;
 		padding: 0.5rem;
 		width: calc(10rem + 4px);
 		height: 2rem;
-		border-radius: 5px;
 		cursor: pointer;
 		border-radius: 10px;
 		background: black;
