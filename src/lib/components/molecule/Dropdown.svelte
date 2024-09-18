@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let author: string;
+	export let heading: string;
 	export let id: string;
 
 	let isOpen = false;
@@ -9,7 +9,7 @@
 	}
 </script>
 
-<div class="Client">
+<dropdown-container>
 	<h3>
 		<button
 			class={isOpen && 'isOpen'}
@@ -18,7 +18,7 @@
 			aria-controls={id}
 			on:click={handleClick}
 		>
-			<span>{author}</span>
+			<span>{heading}</span>
 			<img
 				class={isOpen && 'openIcon'}
 				alt={isOpen ? 'close text icon' : 'open text icon'}
@@ -27,44 +27,45 @@
 		</button>
 	</h3>
 	<div {id} class={!isOpen && 'hidden'}><slot /></div>
-</div>
+</dropdown-container>
 
 <style>
-	.Client {
+	dropdown-container {
 		margin-bottom: 1rem;
-		width: min(calc(50rem - 20px), 90vw);
+		width: min(calc(25rem - 20px), 90vw);
 	}
+
 	h3 {
 		margin: 0;
 	}
 
 	h3 button {
-		width: min(calc(50rem - 20px), 90vw);
 		text-align: left;
-		font-size: 1rem;
+		width: min(calc(25rem - 20px), 90vw);
 		display: flex;
 		justify-content: space-between;
-		font-weight: 700;
 		border: none;
-		background: #41364d;
-		cursor: pointer;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
 		padding: 1rem;
-		color: #fbfafc;
+		color: black;
+		font-size: 1.25rem;
+		background: #00ceff;
+		cursor: pointer;
 	}
 
-	.Client div {
-		background-image: linear-gradient(to right, white, #f6f5ef 50%, white 80%, #f6f5ef 100%);
+	dropdown-container div {
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
-		padding: 1rem;
-		color: black;
+		position: absolute;
+		width: min(calc(25rem - 20px), 90vw);
+		box-sizing: border-box;
+		background: black;
 	}
 
 	h3 button:hover,
 	h3 button.isOpen {
-		background: #7436b3;
+		background: #00ffb3;
 	}
 
 	.hidden {

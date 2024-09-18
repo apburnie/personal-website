@@ -1,4 +1,3 @@
-import '@fontsource/cabin';
-import '@fontsource/lobster-two';
+import '@fontsource-variable/raleway';
 
 export const prerender = true;
