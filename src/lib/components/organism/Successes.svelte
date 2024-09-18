@@ -10,7 +10,9 @@
 
 <category-container>
 	<SmartBox heading="Mysten Labs raised USD 300 million" id="mysten">
-		<span>I built the initial Sui Explorer in under a month. Mysten Labs raised</span>
+		<span
+			>I built the initial Sui Explorer in under a month. Utilizing this, Mysten Labs raised</span
+		>
 		<Link
 			href="https://www.wsj.com/articles/crypto-startup-mysten-labs-raises-300-million-in-ftx-led-round-11662609293"
 			label="USD 300 million"
@@ -24,24 +26,24 @@
 		<Link href="https://suiexplorer.com" label="suiexplorer.com" />.
 	</SmartBox>
 
-	<SmartBox heading="August raised USD 6 million" id="august">
-		<span
-			>I built trading interfaces that enable deposits and withdrawals in a DeFi lending protocol
-			across EVM-compatible Blockchains</span
-		>. August (previously Fractal) raised
-		<Link
-			href="https://www.bloomberg.com/news/videos/2023-04-17/on-chain-finance-startup-fractal-s-6m-seed-raise-video"
-			label="USD 6 million"
-		/>.
-		<span>This uses a confidential codebase</span>
-	</SmartBox>
-
 	<SmartBox heading="html_compile 5 stars on GitHub" id="html_compile">
 		<span
 			>I used metaprogramming and macros to create an open-source template engine for generating
 			HTML strings within Rust. This has had more than 1700 downloads and has 5 stars on GitHub:</span
 		>
 		<Link href="https://crates.io/crates/html_compile" label="crates.io/crates/html_compile" />.
+	</SmartBox>
+
+	<SmartBox heading="August raised USD 6 million" id="august">
+		<span
+			>I built <Link href="https://platform.augustdigital.io" label="trading interfaces" /> that enable
+			deposits and withdrawals in a DeFi lending protocol across EVM-compatible Blockchains</span
+		>. August (previously Fractal) raised
+		<Link
+			href="https://www.bloomberg.com/news/videos/2023-04-17/on-chain-finance-startup-fractal-s-6m-seed-raise-video"
+			label="USD 6 million"
+		/>.
+		<span>This uses a confidential codebase</span>
 	</SmartBox>
 </category-container>
 <a href="https://github.com/apburnie" target="_blank" rel="noreferrer" class="GitHubLink"

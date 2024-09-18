@@ -41,16 +41,25 @@
 			};
 
 			p.draw = () => {
-				x = x + 0.5;
-				const yRotation = x;
 				const xRotation = -30;
 				const sphereSize = 100;
+
+				const distance = p.dist(p.mouseX, p.mouseY, 100, 100);
+
+				if (distance > 150) {
+					x = x + 0.5;
+				} else {
+					x = x;
+				}
+
+				const yRotation = x;
 
 				p.angleMode(p.DEGREES);
 				p.background(255, 1);
 				p.directionalLight(255, 255, 255, 0, 0, -10);
 				p.ambientLight(100);
 				p.push();
+
 				p.rotateX(xRotation);
 				p.rotateY(yRotation);
 				p.noStroke();
@@ -93,17 +102,21 @@
 	</div>
 </flex-box>
 
-<div>If you are in London UK feel free to reach out for a chat IRL &#9749;</div>
+<div>Based in London UK, working with a global market</div>
 
 <style>
 	.Container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		padding: 1rem;
+		margin: auto;
 	}
 
 	flex-box {
 		display: flex;
 		flex-wrap: wrap;
+	}
+	.Image {
+		margin: auto;
 	}
 </style>

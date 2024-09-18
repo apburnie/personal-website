@@ -7,8 +7,7 @@
 <div>
 	<p>
 		I build fast, beautiful websites that work from smartphones to desktop and that interact with
-		any blockchain or database. The following are the leading-edge technologies I use to meet tight
-		deadlines:
+		any blockchain or database under tight deadlines with the following leading-edge technologies:
 	</p>
 </div>
 <category-container>
