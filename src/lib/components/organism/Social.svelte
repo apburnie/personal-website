@@ -111,7 +111,14 @@
 		</contact-row>
 
 		<contact-row>
-			<contact-label>Telegram and Discord</contact-label>
+			<contact-label>Telegram </contact-label>
+			<contact-link>
+				<Link href="https://t.me/apburnie" label="@apburnie" />
+			</contact-link>
+		</contact-row>
+
+		<contact-row>
+			<contact-label>Discord</contact-label>
 			<contact-link> apburnie </contact-link>
 		</contact-row>
 	</contact-container>
