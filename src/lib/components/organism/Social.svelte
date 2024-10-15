@@ -97,13 +97,6 @@
 		</contact-row>
 
 		<contact-row>
-			<contact-label>Reddit</contact-label>
-			<contact-link>
-				<Link href="https://www.reddit.com/user/andrewburnie/" label="u/andrewburnie" />
-			</contact-link>
-		</contact-row>
-
-		<contact-row>
 			<contact-label>GitHub</contact-label>
 			<contact-link>
 				<Link href="https://github.com/apburnie" label="github.com/apburnie" />

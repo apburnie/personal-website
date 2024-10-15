@@ -15,36 +15,40 @@
 	}
 </script>
 
-<button
-	on:click={openCloseMenu}
-	class={isMenuOpen && 'active'}
-	type="button"
-	aria-label={isMenuOpen ? 'Close Main Menu' : 'Open Main Menu'}
-	aria-expanded={isMenuOpen}
-	aria-haspopup="menu"
->
-	{isMenuOpen ? 'Close Menu' : 'Open Menu'}
-</button>
-{#if isMenuOpen}
-	<div class="MobileNav">
-		<nav aria-label="Main Menu">
-			<ul>
-				{#each sectionList as section, i}
-					<li
-						class={`${activeSection === section && 'active'} ${i < activeIndex && 'beforeActive'}`}
-					>
-						<a
-							href={`#${section}`}
-							class={activeSection === section && 'active'}
-							aria-current={activeSection === section}
-							>{convertCamelCaseToSentence(section)}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</nav>
-	</div>
-{/if}
+<menu-container>
+	<button
+		on:click={openCloseMenu}
+		class={isMenuOpen && 'active'}
+		type="button"
+		aria-label={isMenuOpen ? 'Close Main Menu' : 'Open Main Menu'}
+		aria-expanded={isMenuOpen}
+		aria-haspopup="menu"
+	>
+		{isMenuOpen ? 'Close Menu' : 'Open Menu'}
+	</button>
+	{#if isMenuOpen}
+		<div class="MobileNav">
+			<nav aria-label="Main Menu">
+				<ul>
+					{#each sectionList as section, i}
+						<li
+							class={`${activeSection === section && 'active'} ${
+								i < activeIndex && 'beforeActive'
+							}`}
+						>
+							<a
+								href={`#${section}`}
+								class={activeSection === section && 'active'}
+								aria-current={activeSection === section}
+								>{convertCamelCaseToSentence(section)}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
+		</div>
+	{/if}
+</menu-container>
 
 <style>
 	button {

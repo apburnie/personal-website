@@ -9,6 +9,7 @@
 <header>
 	<div class="MobileNav">
 		<NavigationMobile {activeSection} {sectionList} />
+		<jump-to-contact><a href="#Contact">Contact</a></jump-to-contact>
 	</div>
 
 	<div class="DesktopNav">
@@ -42,6 +43,25 @@
 	/* Desktop Nav bar present only on larger screens */
 	.DesktopNav {
 		display: none;
+	}
+
+	.MobileNav {
+		display: flex;
+		justify-content: space-between;
+		padding-right: 2vw;
+		align-items: center;
+	}
+
+	jump-to-contact {
+		border: 1px solid #eeff00;
+		padding: 0.5rem;
+		border-radius: 10px;
+		background: black;
+	}
+
+	jump-to-contact a {
+		text-decoration: none;
+		color: #eeff00;
 	}
 
 	/* Enforces presence / absence of nav bars */
