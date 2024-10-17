@@ -1,4 +1,4 @@
-<div class="Container">
+<aboutme-container>
 	<row-one>
 		<profile-container>
 			<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
@@ -12,14 +12,15 @@
 	<rocket-container>
 		<img alt="rocket" src="/assets/rocket/rocket.svg" />
 	</rocket-container>
+
 	<text-container>
+		<p>My websites have raised USD 310 million</p>
 		<p>
 			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
 		</p>
 		<p>Specialist expertise in DeFi, Cryptoassets and AI</p>
-		<p>Programming since 2015 with PhD in Computer Science from UCL</p>
 	</text-container>
-</div>
+</aboutme-container>
 
 <style>
 	rocket-container {
@@ -77,7 +78,7 @@
 		text-align: end;
 	}
 
-	.Container {
+	aboutme-container {
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
