@@ -1,49 +1,49 @@
 <div class="Container">
 	<row-one>
-		<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
+		<profile-container>
+			<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
+		</profile-container>
 		<author-slogan>
 			<author-name>Andrew Burnie</author-name>
-			<slogan-text>Fast Frontends Delivered</slogan-text>
+			<slogan-text>Fast Frontends <rocket-fuel-text>Delivered</rocket-fuel-text></slogan-text>
 		</author-slogan>
 	</row-one>
 
-	<div class="Text">
+	<rocket-container>
+		<img alt="rocket" src="/assets/rocket/rocket.svg" />
+	</rocket-container>
+	<text-container>
 		<p>
 			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
 		</p>
 		<p>Specialist expertise in DeFi, Cryptoassets and AI</p>
 		<p>Programming since 2015 with PhD in Computer Science from UCL</p>
-		<p>
-			Scroll down to find out more about the services provided, past successes and contact details
-		</p>
-	</div>
+	</text-container>
 </div>
 
 <style>
-	@keyframes shiftRight {
-		0% {
-			left: -100vw;
-			font-style: oblique -20deg;
-		}
-		89% {
-			left: 2vw;
-			font-style: normal;
-		}
-		100% {
-			left: 0;
-		}
+	rocket-container {
+		height: fit-content;
+		padding: 1rem;
+		box-sizing: border-box;
+		background-image: url('/assets/rocket/constel.svg');
+		position: relative;
+		background-position: 0px 0px;
+		background-repeat: repeat-x;
+		animation: animatedBackground 10s linear infinite;
+		background-size: cover;
 	}
 
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		50% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
+	rocket-container img {
+		animation: expandRocket 10s ease-in;
+		max-width: 80vw;
+	}
+
+	rocket-fuel-text {
+		display: inline;
+		background: linear-gradient(to right, #f0bb47ff, #ff8573);
+		color: transparent;
+		background-clip: text;
 	}
 
 	row-one {
@@ -82,17 +82,22 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		gap: 1rem;
-		align-items: end;
+		align-items: center;
 	}
 
-	.Text {
+	text-container {
 		margin: auto;
 		animation-name: fadeIn;
 		animation-duration: 6s;
 		animation-iteration-count: 1;
+		text-align: center;
 	}
 
-	img {
+	profile-container {
+		margin-left: auto;
+	}
+
+	profile-container img {
 		border-style: solid;
 		border-radius: 150px;
 		background-image: linear-gradient(to bottom, #d4ce91, #c7c06d);
@@ -111,9 +116,53 @@
 			text-align: right;
 		}
 
-		img {
+		profile-container img {
 			height: 10rem;
 			width: 10rem;
+		}
+	}
+
+	@keyframes animatedBackground {
+		from {
+			background-position: 0 0;
+		}
+		to {
+			background-position: -10000px 0;
+		}
+	}
+
+	@keyframes expandRocket {
+		from {
+			transform: scale(0.1);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes shiftRight {
+		0% {
+			left: -100vw;
+			font-style: oblique -20deg;
+		}
+		89% {
+			left: 2vw;
+			font-style: normal;
+		}
+		100% {
+			left: 0;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 </style>

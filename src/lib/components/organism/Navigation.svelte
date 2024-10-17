@@ -53,7 +53,7 @@
 	}
 
 	jump-to-contact {
-		border: 1px solid #eeff00;
+		border: 1px solid #fac79e;
 		padding: 0.5rem;
 		border-radius: 10px;
 		background: black;
@@ -61,7 +61,7 @@
 
 	jump-to-contact a {
 		text-decoration: none;
-		color: #eeff00;
+		color: #fac79e;
 	}
 
 	/* Enforces presence / absence of nav bars */
