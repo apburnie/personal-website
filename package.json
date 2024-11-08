@@ -10,8 +10,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"tidyup": "yarn format && yarn lint && yarn check",
-		"convertContent": "yarn marked -i content/whoWeAre.md -o src/lib/components/whoWeAre.svelte && yarn marked -i content/loyaltyPoints.md -o src/lib/components/loyaltyPoints.svelte"
+		"tidyup": "yarn format && yarn lint && yarn check"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",

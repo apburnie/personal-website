@@ -18,7 +18,7 @@
 		<p>
 			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
 		</p>
-		<p>Specialist expertise in DeFi, Cryptoassets and AI</p>
+		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
 	</text-container>
 </aboutme-container>
 
