@@ -1,33 +1,18 @@
-<aboutme-container>
-	<row-one>
-		<profile-container>
-			<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
-		</profile-container>
-		<author-slogan>
-			<author-name>Andrew Burnie</author-name>
-			<slogan-text>Fast Frontends <rocket-fuel-text>Delivered</rocket-fuel-text></slogan-text>
-		</author-slogan>
-	</row-one>
+import { LitElement, html, css, unsafeCSS } from 'lit'
+import { customElement} from 'lit/decorators.js'
+import constellationImg from '../../assets/rocket/constel.svg';
+import rocketImg from "../../assets/rocket/rocket.svg";
+import profileImg from '../../assets/profileLarge.png';
 
-	<rocket-container>
-		<img alt="rocket" src="/assets/rocket/rocket.svg" />
-	</rocket-container>
+@customElement('about-me')
+export class AboutMe extends LitElement {
 
-	<text-container>
-		<p>My websites have raised USD 310 million</p>
-		<p>
-			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
-		</p>
-		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
-	</text-container>
-</aboutme-container>
-
-<style>
+  static styles = css`
 	rocket-container {
 		height: fit-content;
 		padding: 1rem;
 		box-sizing: border-box;
-		background-image: url('/assets/rocket/constel.svg');
+		background-image: url('${unsafeCSS(constellationImg)}');
 		position: relative;
 		background-position: 0px 0px;
 		background-repeat: repeat-x;
@@ -166,4 +151,39 @@
 			opacity: 1;
 		}
 	}
-</style>
+
+  `;
+
+  render() {
+    return html`
+	<row-one>
+		<profile-container>
+			<img src=${profileImg} alt="Andrew Burnie" />
+		</profile-container>
+		<author-slogan>
+			<author-name>Andrew Burnie</author-name>
+			<slogan-text>Fast Frontends <rocket-fuel-text>Delivered</rocket-fuel-text></slogan-text>
+		</author-slogan>
+	</row-one>
+
+	<rocket-container>
+		<img alt="rocket" src=${rocketImg} />
+	</rocket-container>
+
+	<text-container>
+		<p>My websites have raised USD 310 million</p>
+		<p>
+			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
+		</p>
+		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
+	</text-container>
+
+          `
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'about-me': AboutMe
+  }
+}

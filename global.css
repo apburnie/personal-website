@@ -1,11 +1,22 @@
-body {
-	font-family: 'Raleway Variable', sans-serif;
-	text-align: left;
+:root {
+  font-family: 'Raleway Variable', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+	color: white;
 	background-image: linear-gradient(to right, #00151a, #00151a 50%, #002a33 80%, #002a33 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: white;
 	margin: 0;
 	padding: 0;
 	display: flex;
