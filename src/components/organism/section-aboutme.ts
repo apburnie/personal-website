@@ -4,8 +4,8 @@ import constellationImg from "../../assets/rocket/constel.svg";
 import rocketImg from "../../assets/rocket/rocket.svg";
 import profileImg from "../../assets/profileLarge.png";
 
-@customElement("about-me")
-export class AboutMe extends LitElement {
+@customElement("section-aboutme")
+export class SectionAboutme extends LitElement {
 	static styles = css`
 	rocket-container {
 		height: fit-content;
@@ -155,6 +155,7 @@ export class AboutMe extends LitElement {
 
 	render() {
 		return html`
+<aboutme-container>
 	<row-one>
 		<profile-container>
 			<img src=${profileImg} alt="Andrew Burnie" />
@@ -176,6 +177,7 @@ export class AboutMe extends LitElement {
 		</p>
 		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
 	</text-container>
+</aboutme-container>
 
           `;
 	}
@@ -183,6 +185,6 @@ export class AboutMe extends LitElement {
 
 declare global {
 	interface HTMLElementTagNameMap {
-		"about-me": AboutMe;
+		"section-aboutme": SectionAboutme;
 	}
 }

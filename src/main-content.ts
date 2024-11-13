@@ -2,7 +2,8 @@ import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
-import "./components/organism/about-me.ts";
+import "./components/organism/section-aboutme.ts";
+import "./components/organism/section-services.ts";
 import "./components/organism/navigation-wrapper.ts";
 
 function setActiveSection(activeSection: string, newSection: string) {
@@ -25,10 +26,10 @@ function convertDevStringToHTML(
 @customElement("main-content")
 export class MainContent extends LitElement {
 	@state()
-	private _activeSection = window.location.hash.slice(1) || "about-me";
+	private _activeSection = window.location.hash.slice(1) || "section-aboutme";
 
 	@state()
-	private sectionList = ["about-me"];
+	private sectionList = ["section-aboutme", "section-services"];
 
 	static styles = css`
 main {
@@ -51,7 +52,7 @@ main {
 
 	render() {
 		return html`
-    <navigation-wrapper></navigation-wrapper>
+    <navigation-wrapper activeSection=${this._activeSection}></navigation-wrapper>
     <main>
     ${this.sectionList.map((sectionElement) => convertDevStringToHTML(this._activeSection, sectionElement, setActiveSection))}
     </main>

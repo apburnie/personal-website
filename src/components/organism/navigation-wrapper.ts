@@ -1,10 +1,13 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 
 import "../molecule/navigation/mobile.ts";
 
 @customElement("navigation-wrapper")
 export class NavigationWrapper extends LitElement {
+	@property({ type: String })
+	activeSection?: string;
+
 	static styles = css`
 	/* Header */
 	header {
@@ -73,7 +76,7 @@ export class NavigationWrapper extends LitElement {
 	</mobile-nav-container>
 
 	<desktop-nav-container>
-        <div>Hello</div>
+        <div>${this.activeSection}</div>
 	</desktop-nav-container>
 </header>
           `;
