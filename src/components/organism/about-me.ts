@@ -1,13 +1,12 @@
-import { LitElement, html, css, unsafeCSS } from 'lit'
-import { customElement} from 'lit/decorators.js'
-import constellationImg from '../../assets/rocket/constel.svg';
+import { LitElement, html, css, unsafeCSS } from "lit";
+import { customElement } from "lit/decorators.js";
+import constellationImg from "../../assets/rocket/constel.svg";
 import rocketImg from "../../assets/rocket/rocket.svg";
-import profileImg from '../../assets/profileLarge.png';
+import profileImg from "../../assets/profileLarge.png";
 
-@customElement('about-me')
+@customElement("about-me")
 export class AboutMe extends LitElement {
-
-  static styles = css`
+	static styles = css`
 	rocket-container {
 		height: fit-content;
 		padding: 1rem;
@@ -154,8 +153,8 @@ export class AboutMe extends LitElement {
 
   `;
 
-  render() {
-    return html`
+	render() {
+		return html`
 	<row-one>
 		<profile-container>
 			<img src=${profileImg} alt="Andrew Burnie" />
@@ -178,12 +177,12 @@ export class AboutMe extends LitElement {
 		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
 	</text-container>
 
-          `
-  }
+          `;
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'about-me': AboutMe
-  }
+	interface HTMLElementTagNameMap {
+		"about-me": AboutMe;
+	}
 }

@@ -1,23 +1,21 @@
-import { LitElement, html, css } from 'lit'
-import { customElement} from 'lit/decorators.js'
+import { LitElement, html, css } from "lit";
+import { customElement } from "lit/decorators.js";
 
-
-@customElement('nav-mobile')
+@customElement("nav-mobile")
 export class NavMobile extends LitElement {
-
-  static styles = css`
+	static styles = css`
 		
-  `
+  `;
 
-  render() {
-    return html`
+	render() {
+		return html`
     <div>Hello Mobile</div>
-          `
-  }
+          `;
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'nav-mobile': NavMobile 
-  }
+	interface HTMLElementTagNameMap {
+		"nav-mobile": NavMobile;
+	}
 }

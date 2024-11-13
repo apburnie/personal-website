@@ -1,12 +1,11 @@
-import { LitElement, html, css } from 'lit'
-import { customElement} from 'lit/decorators.js'
+import { LitElement, html, css } from "lit";
+import { customElement } from "lit/decorators.js";
 
-import '../molecule/navigation/mobile.ts';
+import "../molecule/navigation/mobile.ts";
 
-@customElement('navigation-wrapper')
+@customElement("navigation-wrapper")
 export class NavigationWrapper extends LitElement {
-
-  static styles = css`
+	static styles = css`
 	/* Header */
 	header {
 		width: 100vw;
@@ -63,10 +62,10 @@ export class NavigationWrapper extends LitElement {
 		}
 	}
 
-  `
+  `;
 
-  render() {
-    return html`
+	render() {
+		return html`
 <header>
 	<mobile-nav-container>
         <nav-mobile/>
@@ -77,12 +76,12 @@ export class NavigationWrapper extends LitElement {
         <div>Hello</div>
 	</desktop-nav-container>
 </header>
-          `
-  }
+          `;
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'navigation-wrapper': NavigationWrapper 
-  }
+	interface HTMLElementTagNameMap {
+		"navigation-wrapper": NavigationWrapper;
+	}
 }
