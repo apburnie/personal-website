@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
+import chevronImg from "../../assets/chevron.svg";
 
 @customElement("custom-dropdown")
 export class CustomDropdown extends LitElement {
@@ -79,11 +80,11 @@ export class CustomDropdown extends LitElement {
 			<img
 				class=${this._isOpen && "openIcon"}
 				alt="${this._isOpen ? "close text icon" : "open text icon"}"
-				src="/assets/chevron.svg"
+				src=${chevronImg}
 			/>
 		</button>
 	</h3>
-	<div {id} class="${!this._isOpen && "hidden"}"><slot /></div>
+	<div {id} class="${!this._isOpen && "hidden"}"><slot></slot></div>
 </dropdown-container>
           `;
 	}

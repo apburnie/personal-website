@@ -1,5 +1,5 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, html } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 
 import "../molecule/info-box";
 import "../molecule/custom-dropdown";
@@ -12,31 +12,35 @@ export class SmartBox extends LitElement {
 	@property()
 	customID?: string;
 
-	static styles = css`
-smart-box-desktop {
-		display: none;
+	@state()
+	_isDesktop?: boolean;
+
+	constructor() {
+		super();
+
+		this._isDesktop = window.innerWidth > 1200;
+
+		window.addEventListener("resize", () => this._handleResize(window));
 	}
 
-	@media only screen and (min-width: 1200px) {
-		smart-box-mobile {
-			display: none;
-		}
-		smart-box-desktop {
-			display: block;
+	protected _handleResize(window: Window) {
+		const newIsDesktop = window.innerWidth > 1200;
+
+		if (this._isDesktop !== newIsDesktop) {
+			this._isDesktop = newIsDesktop;
 		}
 	}
-	  `;
 
-	render() {
-		return html`
-<smart-box-mobile>
+	protected render() {
+		const mobileVersion = html`
 	<custom-dropdown heading="${this.heading}" customID="${this.customID}"><slot/></custom-dropdown>
-</smart-box-mobile>
+`;
 
-<smart-box-desktop>
+		const desktopVersion = html`
 	<info-box heading="${this.heading}" customID="${this.customID}"><slot/></info-box>
-</smart-box-desktop>
-          `;
+`;
+
+		return this._isDesktop ? desktopVersion : mobileVersion;
 	}
 }
 

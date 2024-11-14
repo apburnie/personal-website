@@ -15,6 +15,7 @@ export class InfoBox extends LitElement {
 		width: min(26rem, 90vw);
 		border: 1px solid #005e7a;
 		border-radius: 20px;
+display: block;
 	}
 
 	h3 {
@@ -36,11 +37,10 @@ export class InfoBox extends LitElement {
 		border-bottom-right-radius: 20px;
 		padding: 1rem;
 		box-sizing: border-box;
-		background: #00141a;
 	}
 	  `;
 
-	render() {
+	protected render() {
 		return html`
 <info-box-container>
 	<h3>
