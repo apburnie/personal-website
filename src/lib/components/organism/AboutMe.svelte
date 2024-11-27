@@ -29,6 +29,10 @@
 		// Padding
 		const ROCKET_PADDING = 0.2;
 
+		// Rocket Position
+		const ROCKET_X = WIDTH * (ROCKET_PADDING / 2);
+		const ROCKET_Y = (HEIGHT * ROCKET_PADDING) / 2;
+
 		let t = 0;
 		let noStars = 0;
 
@@ -81,18 +85,24 @@
 				});
 
 				if (t < ROCKET_TIME) {
+					const xStart = (WIDTH - ROCKET_X) / 2;
+					const xCoord = xStart + (t / ROCKET_TIME) * (ROCKET_X - xStart);
+
+					const yStart = (HEIGHT - ROCKET_Y) / 2;
+					const yCoord = yStart + (t / ROCKET_TIME) * (ROCKET_Y - yStart);
+
 					p.image(
 						rocket,
-						WIDTH * (ROCKET_PADDING / 2),
-						(HEIGHT * ROCKET_PADDING) / 2,
+						xCoord,
+						yCoord,
 						((WIDTH * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t,
 						((HEIGHT * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t
 					);
 				} else {
 					p.image(
 						rocket,
-						WIDTH * (ROCKET_PADDING / 2),
-						(HEIGHT * ROCKET_PADDING) / 2,
+						ROCKET_X,
+						ROCKET_Y,
 						WIDTH * (1 - ROCKET_PADDING),
 						HEIGHT * (1 - ROCKET_PADDING)
 					);
