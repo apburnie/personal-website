@@ -13,7 +13,7 @@
 	function generateBaseValues(window) {
 		const SPEED = 20;
 		let WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
-		let HEIGHT = Math.floor(WIDTH / 5);
+		let HEIGHT = Math.floor(WIDTH / 4);
 
 		const STAR_DIM = Math.floor((WIDTH / 75) * 1.5);
 
@@ -179,8 +179,10 @@
 		</author-slogan>
 	</row-one>
 
-	<div id="p5_loading" />
-	<div id="rocketdiv" />
+	<image-container>
+		<div id="p5_loading" />
+		<div id="rocketdiv" />
+	</image-container>
 
 	<text-container>
 		<p>My websites have raised USD 310 million</p>
@@ -207,10 +209,21 @@
 		flex-wrap: wrap-reverse;
 		margin: auto;
 		gap: 2rem;
+		animation-name: fadeIn;
+		animation-duration: 3s;
+		animation-iteration-count: 1;
 	}
 
 	#p5_loading {
 		height: 150px;
+	}
+
+	image-container {
+		display: flex;
+		justify-content: center;
+		animation-name: fadeIn;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
 	}
 
 	author-slogan {
@@ -220,7 +233,7 @@
 		font-size: 2rem;
 		position: relative;
 		animation-name: shiftRight;
-		animation-duration: 3s;
+		animation-duration: 5s;
 		animation-iteration-count: 1;
 	}
 
@@ -235,19 +248,20 @@
 	}
 
 	aboutme-container {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		gap: 1rem;
 		align-items: center;
 	}
 
 	text-container {
 		margin: auto;
 		animation-name: fadeIn;
-		animation-duration: 6s;
+		animation-duration: 10s;
 		animation-iteration-count: 1;
 		text-align: center;
+	}
+
+	text-container p {
+		margin: 0;
+		line-height: 1.5;
 	}
 
 	profile-container {
@@ -262,7 +276,7 @@
 		width: 5rem;
 		margin: auto;
 		animation-name: fadeIn;
-		animation-duration: 6s;
+		animation-duration: 8s;
 		animation-iteration-count: 1;
 	}
 
