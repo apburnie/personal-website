@@ -10,10 +10,10 @@
 		return Math.floor(Math.random() * (maxV - minV) + minV);
 	}
 
-	onMount(async () => {
+	function generateBaseValues(window) {
 		const SPEED = 20;
-		const WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
-		const HEIGHT = Math.floor(WIDTH / 3);
+		let WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
+		let HEIGHT = Math.floor(WIDTH / 5);
 
 		const STAR_DIM = Math.floor((WIDTH / 75) * 1.5);
 
@@ -36,6 +36,38 @@
 		const ROCKET_X_START = (WIDTH - ROCKET_X) / 2;
 		const ROCKET_Y_START = (HEIGHT - ROCKET_Y) / 2;
 
+		return {
+			SPEED,
+			WIDTH,
+			HEIGHT,
+			STAR_DIM,
+			STAR_NO,
+			STAR_FREQ,
+			ROCKET_TIME,
+			ROCKET_PADDING,
+			ROCKET_X,
+			ROCKET_Y,
+			ROCKET_X_START,
+			ROCKET_Y_START
+		};
+	}
+
+	onMount(async () => {
+		let {
+			SPEED,
+			WIDTH,
+			HEIGHT,
+			STAR_DIM,
+			STAR_NO,
+			STAR_FREQ,
+			ROCKET_TIME,
+			ROCKET_PADDING,
+			ROCKET_X,
+			ROCKET_Y,
+			ROCKET_X_START,
+			ROCKET_Y_START
+		} = generateBaseValues(window);
+
 		let t = 0;
 		let noStars = 0;
 
@@ -49,6 +81,25 @@
 
 			p.setup = () => {
 				p.createCanvas(WIDTH, HEIGHT);
+			};
+
+			p.windowResized = () => {
+				({
+					SPEED,
+					WIDTH,
+					HEIGHT,
+					STAR_DIM,
+					STAR_NO,
+					STAR_FREQ,
+					ROCKET_TIME,
+					ROCKET_PADDING,
+					ROCKET_X,
+					ROCKET_Y,
+					ROCKET_X_START,
+					ROCKET_Y_START
+				} = generateBaseValues(window));
+
+				p.resizeCanvas(WIDTH, HEIGHT);
 			};
 
 			p.draw = () => {
@@ -156,6 +207,10 @@
 		flex-wrap: wrap-reverse;
 		margin: auto;
 		gap: 2rem;
+	}
+
+	#p5_loading {
+		height: 150px;
 	}
 
 	author-slogan {
