@@ -33,6 +33,9 @@
 		const ROCKET_X = WIDTH * (ROCKET_PADDING / 2);
 		const ROCKET_Y = (HEIGHT * ROCKET_PADDING) / 2;
 
+		const ROCKET_X_START = (WIDTH - ROCKET_X) / 2;
+		const ROCKET_Y_START = (HEIGHT - ROCKET_Y) / 2;
+
 		let t = 0;
 		let noStars = 0;
 
@@ -85,11 +88,8 @@
 				});
 
 				if (t < ROCKET_TIME) {
-					const xStart = (WIDTH - ROCKET_X) / 2;
-					const xCoord = xStart + (t / ROCKET_TIME) * (ROCKET_X - xStart);
-
-					const yStart = (HEIGHT - ROCKET_Y) / 2;
-					const yCoord = yStart + (t / ROCKET_TIME) * (ROCKET_Y - yStart);
+					const xCoord = ROCKET_X_START + (t / ROCKET_TIME) * (ROCKET_X - ROCKET_X_START);
+					const yCoord = ROCKET_Y_START + (t / ROCKET_TIME) * (ROCKET_Y - ROCKET_Y_START);
 
 					p.image(
 						rocket,
@@ -218,24 +218,6 @@
 		profile-container img {
 			height: 10rem;
 			width: 10rem;
-		}
-	}
-
-	@keyframes animatedBackground {
-		from {
-			background-position: 0 0;
-		}
-		to {
-			background-position: -10000px 0;
-		}
-	}
-
-	@keyframes expandRocket {
-		from {
-			transform: scale(0.1);
-		}
-		to {
-			transform: scale(1);
 		}
 	}
 
