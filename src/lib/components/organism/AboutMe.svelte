@@ -1,3 +1,173 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	let rocket;
+	let star;
+
+	let starData = [];
+
+	function randomInteger(minV, maxV) {
+		return Math.floor(Math.random() * (maxV - minV) + minV);
+	}
+
+	function generateBaseValues(window) {
+		const SPEED = 20;
+		let WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
+		let HEIGHT = Math.floor(WIDTH / 4);
+
+		const STAR_DIM = Math.floor((WIDTH / 75) * 1.5);
+
+		// Max number of stars created in column
+		const STAR_NO = 10;
+
+		// Frequency of star creation
+		const STAR_FREQ = 5;
+
+		// Time takes for Rocket to emerge
+		const ROCKET_TIME = 1000;
+
+		// Padding
+		const ROCKET_PADDING = 0.2;
+
+		// Rocket Position
+		const ROCKET_X = WIDTH * (ROCKET_PADDING / 2);
+		const ROCKET_Y = (HEIGHT * ROCKET_PADDING) / 2;
+
+		const ROCKET_X_START = (WIDTH - ROCKET_X) / 2;
+		const ROCKET_Y_START = (HEIGHT - ROCKET_Y) / 2;
+
+		return {
+			SPEED,
+			WIDTH,
+			HEIGHT,
+			STAR_DIM,
+			STAR_NO,
+			STAR_FREQ,
+			ROCKET_TIME,
+			ROCKET_PADDING,
+			ROCKET_X,
+			ROCKET_Y,
+			ROCKET_X_START,
+			ROCKET_Y_START
+		};
+	}
+
+	onMount(async () => {
+		let {
+			SPEED,
+			WIDTH,
+			HEIGHT,
+			STAR_DIM,
+			STAR_NO,
+			STAR_FREQ,
+			ROCKET_TIME,
+			ROCKET_PADDING,
+			ROCKET_X,
+			ROCKET_Y,
+			ROCKET_X_START,
+			ROCKET_Y_START
+		} = generateBaseValues(window);
+
+		let t = 0;
+		let noStars = 0;
+
+		const p5 = (await import('p5')).default;
+
+		const sketch = (p) => {
+			p.preload = () => {
+				rocket = p.loadImage('./assets/rocket/rocket.svg');
+				star = p.loadImage('./assets/rocket/star.svg');
+			};
+
+			p.setup = () => {
+				p.createCanvas(WIDTH, HEIGHT);
+			};
+
+			p.windowResized = () => {
+				({
+					SPEED,
+					WIDTH,
+					HEIGHT,
+					STAR_DIM,
+					STAR_NO,
+					STAR_FREQ,
+					ROCKET_TIME,
+					ROCKET_PADDING,
+					ROCKET_X,
+					ROCKET_Y,
+					ROCKET_X_START,
+					ROCKET_Y_START
+				} = generateBaseValues(window));
+
+				p.resizeCanvas(WIDTH, HEIGHT);
+			};
+
+			p.draw = () => {
+				t += 1;
+
+				// 1)  Move Existing Stars
+
+				starData = starData.map(({ x, y }) => ({ x: x - SPEED, y }));
+
+				// 2) Remove Stars that are out of view
+
+				starData = starData.filter(({ x }) => x > STAR_DIM);
+
+				// 3) Create New Stars
+
+				if (t % STAR_FREQ === 0) {
+					noStars = randomInteger(0, STAR_NO);
+
+					let n = 0;
+
+					while (n <= noStars) {
+						const newStarHeight = randomInteger(0, HEIGHT - STAR_DIM);
+
+						starData.push({
+							x: randomInteger(WIDTH - 5 * STAR_DIM, WIDTH - STAR_DIM),
+							y: newStarHeight
+						});
+
+						n += 1;
+					}
+				}
+
+				p.clear();
+
+				starData.forEach((point) => {
+					p.drawingContext.shadowColor = '#e0e3eb';
+					p.drawingContext.shadowBlur = 10;
+					p.image(star, point.x, point.y, STAR_DIM, STAR_DIM);
+				});
+
+				p.drawingContext.shadowBlur = 0;
+				if (t < ROCKET_TIME) {
+					const xCoord = ROCKET_X_START + (t / ROCKET_TIME) * (ROCKET_X - ROCKET_X_START);
+					const yCoord = ROCKET_Y_START + (t / ROCKET_TIME) * (ROCKET_Y - ROCKET_Y_START);
+
+					p.image(
+						rocket,
+						xCoord,
+						yCoord,
+						((WIDTH * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t,
+						((HEIGHT * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t
+					);
+				} else {
+					p.image(
+						rocket,
+						ROCKET_X,
+						ROCKET_Y,
+						WIDTH * (1 - ROCKET_PADDING),
+						HEIGHT * (1 - ROCKET_PADDING)
+					);
+				}
+			};
+		};
+
+		new p5(sketch, 'rocketdiv');
+	});
+</script>
+
 <aboutme-container>
 	<row-one>
 		<profile-container>
@@ -9,9 +179,10 @@
 		</author-slogan>
 	</row-one>
 
-	<rocket-container>
-		<img alt="rocket" src="/assets/rocket/rocket.svg" />
-	</rocket-container>
+	<image-container>
+		<div id="p5_loading" />
+		<div id="rocketdiv" />
+	</image-container>
 
 	<text-container>
 		<p>My websites have raised USD 310 million</p>
@@ -23,23 +194,6 @@
 </aboutme-container>
 
 <style>
-	rocket-container {
-		height: fit-content;
-		padding: 1rem;
-		box-sizing: border-box;
-		background-image: url('/assets/rocket/constel.svg');
-		position: relative;
-		background-position: 0px 0px;
-		background-repeat: repeat-x;
-		animation: animatedBackground 10s linear infinite;
-		background-size: cover;
-	}
-
-	rocket-container img {
-		animation: expandRocket 10s ease-in;
-		max-width: 80vw;
-	}
-
 	rocket-fuel-text {
 		display: inline;
 		background: linear-gradient(to right, #f0bb47ff, #ff8573);
@@ -55,6 +209,21 @@
 		flex-wrap: wrap-reverse;
 		margin: auto;
 		gap: 2rem;
+		animation-name: fadeIn;
+		animation-duration: 3s;
+		animation-iteration-count: 1;
+	}
+
+	#p5_loading {
+		height: 150px;
+	}
+
+	image-container {
+		display: flex;
+		justify-content: center;
+		animation-name: fadeIn;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
 	}
 
 	author-slogan {
@@ -64,7 +233,7 @@
 		font-size: 2rem;
 		position: relative;
 		animation-name: shiftRight;
-		animation-duration: 3s;
+		animation-duration: 5s;
 		animation-iteration-count: 1;
 	}
 
@@ -79,19 +248,20 @@
 	}
 
 	aboutme-container {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		gap: 1rem;
 		align-items: center;
 	}
 
 	text-container {
 		margin: auto;
 		animation-name: fadeIn;
-		animation-duration: 6s;
+		animation-duration: 10s;
 		animation-iteration-count: 1;
 		text-align: center;
+	}
+
+	text-container p {
+		margin: 0;
+		line-height: 1.5;
 	}
 
 	profile-container {
@@ -106,7 +276,7 @@
 		width: 5rem;
 		margin: auto;
 		animation-name: fadeIn;
-		animation-duration: 6s;
+		animation-duration: 8s;
 		animation-iteration-count: 1;
 	}
 
@@ -120,24 +290,6 @@
 		profile-container img {
 			height: 10rem;
 			width: 10rem;
-		}
-	}
-
-	@keyframes animatedBackground {
-		from {
-			background-position: 0 0;
-		}
-		to {
-			background-position: -10000px 0;
-		}
-	}
-
-	@keyframes expandRocket {
-		from {
-			transform: scale(0.1);
-		}
-		to {
-			transform: scale(1);
 		}
 	}
 
