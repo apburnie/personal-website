@@ -84,9 +84,12 @@
 				p.clear();
 
 				starData.forEach((point) => {
+					p.drawingContext.shadowColor = '#e0e3eb';
+					p.drawingContext.shadowBlur = 10;
 					p.image(star, point.x, point.y, STAR_DIM, STAR_DIM);
 				});
 
+				p.drawingContext.shadowBlur = 0;
 				if (t < ROCKET_TIME) {
 					const xCoord = ROCKET_X_START + (t / ROCKET_TIME) * (ROCKET_X - ROCKET_X_START);
 					const yCoord = ROCKET_Y_START + (t / ROCKET_TIME) * (ROCKET_Y - ROCKET_Y_START);
