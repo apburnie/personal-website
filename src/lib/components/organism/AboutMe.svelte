@@ -1,3 +1,109 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	let rocket;
+	let star;
+
+	let starData = [];
+
+	function randomInteger(minV, maxV) {
+		return Math.floor(Math.random() * (maxV - minV) + minV);
+	}
+
+	onMount(async () => {
+		const SPEED = 20;
+		const WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
+		const HEIGHT = Math.floor(WIDTH / 3);
+
+		const STAR_DIM = Math.floor((WIDTH / 75) * 1.5);
+
+		// Max number of stars created in column
+		const STAR_NO = 10;
+
+		// Frequency of star creation
+		const STAR_FREQ = 5;
+
+		// Time takes for Rocket to emerge
+		const ROCKET_TIME = 1000;
+
+		// Padding
+		const ROCKET_PADDING = 0.2;
+
+		let t = 0;
+		let noStars = 0;
+
+		const p5 = (await import('p5')).default;
+
+		const sketch = (p) => {
+			p.preload = () => {
+				rocket = p.loadImage('./assets/rocket/rocket.svg');
+				star = p.loadImage('./assets/rocket/star.svg');
+			};
+
+			p.setup = () => {
+				p.createCanvas(WIDTH, HEIGHT);
+			};
+
+			p.draw = () => {
+				t += 1;
+
+				// 1)  Move Existing Stars
+
+				starData = starData.map(({ x, y }) => ({ x: x - SPEED, y }));
+
+				// 2) Remove Stars that are out of view
+
+				starData = starData.filter(({ x }) => x > STAR_DIM);
+
+				// 3) Create New Stars
+
+				if (t % STAR_FREQ === 0) {
+					noStars = randomInteger(0, STAR_NO);
+
+					let n = 0;
+
+					while (n <= noStars) {
+						const newStarHeight = randomInteger(0, HEIGHT - STAR_DIM);
+
+						starData.push({
+							x: randomInteger(WIDTH - 5 * STAR_DIM, WIDTH - STAR_DIM),
+							y: newStarHeight
+						});
+
+						n += 1;
+					}
+				}
+
+				p.clear();
+
+				starData.forEach((point) => {
+					p.image(star, point.x, point.y, STAR_DIM, STAR_DIM);
+				});
+
+				if (t < ROCKET_TIME) {
+					p.image(
+						rocket,
+						WIDTH * (ROCKET_PADDING / 2),
+						(HEIGHT * ROCKET_PADDING) / 2,
+						((WIDTH * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t,
+						((HEIGHT * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t
+					);
+				} else {
+					p.image(
+						rocket,
+						WIDTH * (ROCKET_PADDING / 2),
+						(HEIGHT * ROCKET_PADDING) / 2,
+						WIDTH * (1 - ROCKET_PADDING),
+						HEIGHT * (1 - ROCKET_PADDING)
+					);
+				}
+			};
+		};
+
+		new p5(sketch, 'rocketdiv');
+	});
+</script>
+
 <aboutme-container>
 	<row-one>
 		<profile-container>
@@ -9,9 +115,8 @@
 		</author-slogan>
 	</row-one>
 
-	<rocket-container>
-		<img alt="rocket" src="/assets/rocket/rocket.svg" />
-	</rocket-container>
+	<div id="p5_loading" />
+	<div id="rocketdiv" />
 
 	<text-container>
 		<p>My websites have raised USD 310 million</p>
@@ -23,23 +128,6 @@
 </aboutme-container>
 
 <style>
-	rocket-container {
-		height: fit-content;
-		padding: 1rem;
-		box-sizing: border-box;
-		background-image: url('/assets/rocket/constel.svg');
-		position: relative;
-		background-position: 0px 0px;
-		background-repeat: repeat-x;
-		animation: animatedBackground 10s linear infinite;
-		background-size: cover;
-	}
-
-	rocket-container img {
-		animation: expandRocket 10s ease-in;
-		max-width: 80vw;
-	}
-
 	rocket-fuel-text {
 		display: inline;
 		background: linear-gradient(to right, #f0bb47ff, #ff8573);
