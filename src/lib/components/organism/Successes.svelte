@@ -29,12 +29,12 @@
 	<SmartBox heading="html_compile 5 stars on GitHub" id="html_compile">
 		<span
 			>I used metaprogramming and macros to create an open-source template engine for generating
-			HTML strings within Rust. This has had more than 1700 downloads and has 5 stars on GitHub:</span
+			HTML strings within Rust. This has had more than 2800 downloads and has 5 stars on GitHub:</span
 		>
 		<Link href="https://crates.io/crates/html_compile" label="crates.io/crates/html_compile" />.
 	</SmartBox>
 
-	<SmartBox heading="August raised USD 6 million" id="august">
+	<SmartBox heading="August raised USD 16 million" id="august">
 		<span
 			>I built <Link href="https://platform.augustdigital.io" label="trading interfaces" /> that enable
 			deposits and withdrawals in a DeFi lending protocol across EVM-compatible Blockchains</span
@@ -42,7 +42,10 @@
 		<Link
 			href="https://www.bloomberg.com/news/videos/2023-04-17/on-chain-finance-startup-fractal-s-6m-seed-raise-video"
 			label="USD 6 million"
-		/>.
+		/> in seed funding and <Link
+			href="https://fortune.com/crypto/2025/03/06/crypto-prime-brokerage-august-raises-10-million-dragonfly-ventures/"
+			label="USD 10 million"
+		/> in a Series A.
 		<span>This uses a confidential codebase</span>
 	</SmartBox>
 </category-container>
