@@ -1,170 +1,77 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
-	let rocket;
-	let star;
-
-	let starData = [];
-
-	function randomInteger(minV, maxV) {
-		return Math.floor(Math.random() * (maxV - minV) + minV);
-	}
-
-	function generateBaseValues(window) {
-		const SPEED = 20;
-		let WIDTH = Math.min(Math.floor(window.innerWidth * 0.9), 750);
-		let HEIGHT = Math.floor(WIDTH / 4);
-
-		const STAR_DIM = Math.floor((WIDTH / 75) * 1.5);
-
-		// Max number of stars created in column
-		const STAR_NO = 10;
-
-		// Frequency of star creation
-		const STAR_FREQ = 5;
-
-		// Time takes for Rocket to emerge
-		const ROCKET_TIME = 1000;
-
-		// Padding
-		const ROCKET_PADDING = 0.2;
-
-		// Rocket Position
-		const ROCKET_X = WIDTH * (ROCKET_PADDING / 2);
-		const ROCKET_Y = (HEIGHT * ROCKET_PADDING) / 2;
-
-		const ROCKET_X_START = (WIDTH - ROCKET_X) / 2;
-		const ROCKET_Y_START = (HEIGHT - ROCKET_Y) / 2;
-
-		return {
-			SPEED,
-			WIDTH,
-			HEIGHT,
-			STAR_DIM,
-			STAR_NO,
-			STAR_FREQ,
-			ROCKET_TIME,
-			ROCKET_PADDING,
-			ROCKET_X,
-			ROCKET_Y,
-			ROCKET_X_START,
-			ROCKET_Y_START
-		};
-	}
+	import * as THREE from 'three';
+	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 	onMount(async () => {
-		let {
-			SPEED,
-			WIDTH,
-			HEIGHT,
-			STAR_DIM,
-			STAR_NO,
-			STAR_FREQ,
-			ROCKET_TIME,
-			ROCKET_PADDING,
-			ROCKET_X,
-			ROCKET_Y,
-			ROCKET_X_START,
-			ROCKET_Y_START
-		} = generateBaseValues(window);
+		const scene = new THREE.Scene();
+		const objLoader = new GLTFLoader();
+		const camera = new THREE.PerspectiveCamera(30, 314 / 276, 0.1, 1000);
+		camera.position.z = 15;
+		const renderer = new THREE.WebGLRenderer({ alpha: true });
+		renderer.setSize(314, 276);
 
-		let t = 0;
-		let noStars = 0;
+		const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+		directionalLight.position.set(0, 1, 1);
+		scene.add(directionalLight);
 
-		const p5 = (await import('p5')).default;
+		const controls = new OrbitControls(camera, renderer.domElement);
 
-		const sketch = (p) => {
-			p.preload = () => {
-				rocket = p.loadImage('./assets/rocket/rocket.svg');
-				star = p.loadImage('./assets/rocket/star.svg');
-			};
+		document.getElementById('rocketdiv').appendChild(renderer.domElement);
 
-			p.setup = () => {
-				p.createCanvas(WIDTH, HEIGHT);
-			};
+		objLoader.load(
+			// resource URL
+			'/assets/Rocket.glb',
+			// called when resource is loaded
+			async function (gltf) {
+				const model = gltf.scene;
 
-			p.windowResized = () => {
-				({
-					SPEED,
-					WIDTH,
-					HEIGHT,
-					STAR_DIM,
-					STAR_NO,
-					STAR_FREQ,
-					ROCKET_TIME,
-					ROCKET_PADDING,
-					ROCKET_X,
-					ROCKET_Y,
-					ROCKET_X_START,
-					ROCKET_Y_START
-				} = generateBaseValues(window));
+				model.rotation.y = Math.PI;
+				model.rotation.x = Math.PI / 2;
+				model.rotation.z = -Math.PI / 3;
 
-				p.resizeCanvas(WIDTH, HEIGHT);
-			};
+				model.position.x = 0;
+				model.position.y = 0;
 
-			p.draw = () => {
-				t += 1;
+				await renderer.compileAsync(model, camera, scene);
 
-				// 1)  Move Existing Stars
+				scene.add(model);
 
-				starData = starData.map(({ x, y }) => ({ x: x - SPEED, y }));
+				renderer.setAnimationLoop(animate);
 
-				// 2) Remove Stars that are out of view
+				let shouldIncrease = true;
 
-				starData = starData.filter(({ x }) => x > STAR_DIM);
-
-				// 3) Create New Stars
-
-				if (t % STAR_FREQ === 0) {
-					noStars = randomInteger(0, STAR_NO);
-
-					let n = 0;
-
-					while (n <= noStars) {
-						const newStarHeight = randomInteger(0, HEIGHT - STAR_DIM);
-
-						starData.push({
-							x: randomInteger(WIDTH - 5 * STAR_DIM, WIDTH - STAR_DIM),
-							y: newStarHeight
-						});
-
-						n += 1;
+				function animate() {
+					if (shouldIncrease) {
+						model.position.y += 0.01;
+					} else {
+						model.position.y += -0.01;
 					}
+
+					if (model.position.y > 1) {
+						shouldIncrease = false;
+					}
+
+					if (model.position.y < -1) {
+						shouldIncrease = true;
+					}
+
+					controls.update();
+					renderer.render(scene, camera);
 				}
 
-				p.clear();
-
-				starData.forEach((point) => {
-					p.drawingContext.shadowColor = '#e0e3eb';
-					p.drawingContext.shadowBlur = 10;
-					p.image(star, point.x, point.y, STAR_DIM, STAR_DIM);
-				});
-
-				p.drawingContext.shadowBlur = 0;
-				if (t < ROCKET_TIME) {
-					const xCoord = ROCKET_X_START + (t / ROCKET_TIME) * (ROCKET_X - ROCKET_X_START);
-					const yCoord = ROCKET_Y_START + (t / ROCKET_TIME) * (ROCKET_Y - ROCKET_Y_START);
-
-					p.image(
-						rocket,
-						xCoord,
-						yCoord,
-						((WIDTH * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t,
-						((HEIGHT * (1 - ROCKET_PADDING)) / ROCKET_TIME) * t
-					);
-				} else {
-					p.image(
-						rocket,
-						ROCKET_X,
-						ROCKET_Y,
-						WIDTH * (1 - ROCKET_PADDING),
-						HEIGHT * (1 - ROCKET_PADDING)
-					);
-				}
-			};
-		};
-
-		new p5(sketch, 'rocketdiv');
+				animate();
+			},
+			// called when loading is in progress
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				console.log('An error happened');
+			}
+		);
 	});
 </script>
 
@@ -180,7 +87,6 @@
 	</row-one>
 
 	<image-container>
-		<div id="p5_loading" />
 		<div id="rocketdiv" />
 	</image-container>
 
