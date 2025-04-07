@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import Link from '$lib/components/atom/Link.svelte';
 
+	import * as THREE from 'three';
+
 	let x = 0;
 	let img;
 
@@ -29,55 +31,45 @@
 			email.innerHTML = decodeEmail(email.textContent);
 		});
 
-		const p5 = (await import('p5')).default;
+		const scene = new THREE.Scene();
 
-		const sketch = (p) => {
-			p.preload = () => {
-				img = p.loadImage('./assets/worldMap.png');
-			};
+		const camera = new THREE.PerspectiveCamera(30, 314 / 276, 0.1, 1000);
 
-			p.setup = () => {
-				p.createCanvas(230, 230, p.WEBGL);
-			};
+		const renderer = new THREE.WebGLRenderer({ alpha: true });
+		renderer.setSize(314, 276);
+		renderer.setAnimationLoop(animate);
 
-			p.draw = () => {
-				const xRotation = -30;
-				const sphereSize = 100;
+		document.getElementById('world').appendChild(renderer.domElement);
 
-				const distance = p.dist(p.mouseX, p.mouseY, 100, 100);
+		const loader = new THREE.TextureLoader();
+		let world = null;
 
-				if (distance > 150) {
-					x = x + 0.5;
-				} else {
-					x = x;
-				}
+		const geometry = new THREE.SphereGeometry(0.99, 32, 32);
+		const material = new THREE.MeshBasicMaterial({ color: '#00151a' });
+		const sphere = new THREE.Mesh(geometry, material);
+		scene.add(sphere);
 
-				const yRotation = x;
+		loader.load('/assets/worldMap.png', function (texture) {
+			const geometry = new THREE.SphereGeometry(1, 32, 32);
+			const material = new THREE.MeshBasicMaterial({
+				map: texture,
+				overdraw: 0.5,
+				transparent: true
+			});
+			world = new THREE.Mesh(geometry, material);
 
-				p.angleMode(p.DEGREES);
-				p.background(255, 1);
-				p.directionalLight(255, 255, 255, 0, 0, -10);
-				p.ambientLight(100);
-				p.push();
+			world.rotation.x += 0.5;
+			scene.add(world);
+		});
 
-				p.rotateX(xRotation);
-				p.rotateY(yRotation);
-				p.noStroke();
-				p.fill('#406080');
-				p.sphere(sphereSize);
-				p.pop();
+		camera.position.z = 5;
 
-				p.push();
-				p.rotateX(xRotation);
-				p.rotateY(yRotation);
-				p.noStroke();
-				p.texture(img);
-				p.sphere(sphereSize);
-				p.pop();
-			};
-		};
-
-		new p5(sketch, 'p5div');
+		function animate() {
+			if (world !== null) {
+				world.rotation.y += 0.005;
+			}
+			renderer.render(scene, camera);
+		}
 	});
 </script>
 
@@ -117,7 +109,7 @@
 	</contact-container>
 
 	<contact-image-container>
-		<div id="p5div" />
+		<div id="world" />
 	</contact-image-container>
 </flex-box>
 
