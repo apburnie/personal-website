@@ -2,23 +2,68 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 	onMount(async () => {
 		const scene = new THREE.Scene();
 		const objLoader = new GLTFLoader();
-		const camera = new THREE.PerspectiveCamera(30, 314 / 276, 0.1, 1000);
+		const camera = new THREE.PerspectiveCamera(30, 2, 0.1, 1000);
 		camera.position.z = 15;
 		const renderer = new THREE.WebGLRenderer({ alpha: true });
-		renderer.setSize(314, 276);
+		renderer.setSize(560, 280);
 
 		const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 		directionalLight.position.set(0, 1, 1);
 		scene.add(directionalLight);
 
-		const controls = new OrbitControls(camera, renderer.domElement);
+		const NO_STARS = 10;
+
+		const star_s = Array(NO_STARS)
+			.fill(null)
+			.map(() => new THREE.PointLight(0xffffff, 100, 0));
+
+		const star_x_s = Array(NO_STARS)
+			.fill(null)
+			.map((x, i) => -9 + i);
+		const star_y_s = star_s.map(() => Math.floor(Math.random() * 10) - 5);
+
+		star_s.forEach((x, i) => {
+			const sphere_g = new THREE.SphereGeometry(0.1, 16, 32);
+			const sphere_m = new THREE.MeshBasicMaterial({ color: 0xffffff });
+			const sphere = new THREE.Mesh(sphere_g, sphere_m);
+
+			x.position.set(star_x_s[i], star_y_s[i], 0);
+			x.add(sphere);
+			scene.add(x);
+		});
+
+		const light = new THREE.PointLight(0xff0000, 100, 0);
+		light.position.set(4, 0, -3);
+		scene.add(light);
 
 		document.getElementById('rocketdiv').appendChild(renderer.domElement);
+
+		objLoader.load(
+			// resource URL
+			'/assets/fire.glb',
+			// called when resource is loaded
+			async function (gltf) {
+				const model = gltf.scene;
+
+				await renderer.compileAsync(model, camera, scene);
+				model.rotation.y = -Math.PI / 3;
+				model.position.z += 1;
+
+				light.add(model);
+			},
+			// called when loading is in progress
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+				console.log('An error happened');
+			}
+		);
 
 		objLoader.load(
 			// resource URL
@@ -45,19 +90,27 @@
 				function animate() {
 					if (shouldIncrease) {
 						model.position.y += 0.01;
+						light.position.y += 0.01;
 					} else {
 						model.position.y += -0.01;
+						light.position.y += -0.01;
 					}
 
-					if (model.position.y > 1) {
+					if (model.position.y > 0.5) {
 						shouldIncrease = false;
 					}
 
-					if (model.position.y < -1) {
+					if (model.position.y < -0.5) {
 						shouldIncrease = true;
 					}
 
-					controls.update();
+					star_s.forEach((x, i) => {
+						star_x_s[i] = star_x_s[i] < 10 ? star_x_s[i] + 1 : -9;
+						star_y_s[i] = star_x_s[i] < 10 ? star_y_s[i] : star_y_s[i] > -5 ? star_y_s[i] - 1 : 5;
+
+						x.position.set(star_x_s[i], star_y_s[i], -5);
+					});
+
 					renderer.render(scene, camera);
 				}
 
@@ -130,6 +183,14 @@
 		animation-name: fadeIn;
 		animation-duration: 1s;
 		animation-iteration-count: 1;
+		border: 5px solid black;
+		background: black;
+		max-width: 90vw;
+		overflow: hidden;
+		margin: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border-radius: 20px;
 	}
 
 	author-slogan {
