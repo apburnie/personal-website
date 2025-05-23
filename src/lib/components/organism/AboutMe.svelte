@@ -61,7 +61,7 @@
 			},
 			// called when loading has errors
 			function (error) {
-				console.log('An error happened');
+				console.log('Error loading Fire Object', error);
 			}
 		);
 
@@ -122,7 +122,7 @@
 			},
 			// called when loading has errors
 			function (error) {
-				console.log('An error happened');
+				console.log('Error occurred loading Rocket', error);
 			}
 		);
 	});
@@ -153,6 +153,7 @@
 </aboutme-container>
 
 <style>
+
 	rocket-fuel-text {
 		display: inline;
 		background: linear-gradient(to right, #f0bb47ff, #ff8573);
@@ -173,25 +174,40 @@
 		animation-iteration-count: 1;
 	}
 
-	#p5_loading {
-		height: 150px;
-	}
-
 	image-container {
 		display: flex;
 		justify-content: center;
-		animation-name: fadeIn;
-		animation-duration: 1s;
-		animation-iteration-count: 1;
 		border: 5px solid black;
 		background: black;
 		max-width: 90vw;
+width: 560px;
 		overflow: hidden;
 		margin: auto;
 		margin-top: 20px;
 		margin-bottom: 20px;
-		border-radius: 20px;
+		border-radius: 50% 20% 20% 50%;
+position: relative;
+right: 0;
+animation-name: rocketMove;
+		animation-duration: 10s;
+		animation-iteration-count: 1;
 	}
+
+	@keyframes rocketMove{
+		0% {
+			left: 100vw;
+		}
+50% {
+			left: 100vw;
+		}
+		89% {
+			left: -2vw;
+		}
+		100% {
+			left: 0;
+		}
+	}
+
 
 	author-slogan {
 		display: flex;
@@ -221,7 +237,7 @@
 	text-container {
 		margin: auto;
 		animation-name: fadeIn;
-		animation-duration: 10s;
+		animation-duration: 20s;
 		animation-iteration-count: 1;
 		text-align: center;
 	}
@@ -273,6 +289,8 @@
 			left: 0;
 		}
 	}
+
+
 
 	@keyframes fadeIn {
 		0% {
