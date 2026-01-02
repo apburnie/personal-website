@@ -9,7 +9,7 @@
 		const camera = new THREE.PerspectiveCamera(30, 2, 0.1, 1000);
 		camera.position.z = 15;
 		const renderer = new THREE.WebGLRenderer({ alpha: true });
-		renderer.setSize(560, 280);
+		renderer.setSize(280, 140);
 
 		const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 		directionalLight.position.set(0, 1, 1);
@@ -130,9 +130,6 @@
 
 <aboutme-container>
 	<row-one>
-		<profile-container>
-			<img src="/assets/profileLarge.png" alt="Andrew Burnie" />
-		</profile-container>
 		<author-slogan>
 			<author-name>Andrew Burnie</author-name>
 			<slogan-text
@@ -144,7 +141,6 @@
 	<image-container>
 		<div id="rocketdiv" />
 	</image-container>
-
 	<text-container>
 		<p>
 			Supporting companies through USD 310 million in funding rounds and USD 1 billion in
@@ -166,7 +162,6 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		width: 80vw;
 		flex-wrap: wrap-reverse;
 		margin: auto;
 		gap: 2rem;
@@ -181,7 +176,7 @@
 		border: 5px solid black;
 		background: black;
 		max-width: 90vw;
-		width: 560px;
+		width: 280px;
 		overflow: hidden;
 		margin: auto;
 		margin-top: 20px;
@@ -231,7 +226,11 @@
 	}
 
 	aboutme-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		align-items: center;
+		gap: 0;
 	}
 
 	text-container {
@@ -245,34 +244,14 @@
 	text-container p {
 		margin: 0;
 		line-height: 1.5;
-	}
-
-	profile-container {
-		margin-left: auto;
-	}
-
-	profile-container img {
-		border-style: solid;
-		border-radius: 150px;
-		background-image: linear-gradient(to bottom, #d4ce91, #c7c06d);
-		height: 5rem;
-		width: 5rem;
-		margin: auto;
-		animation-name: fadeIn;
-		animation-duration: 8s;
-		animation-iteration-count: 1;
+		font-size: 1.5rem;
 	}
 
 	@media only screen and (min-width: 1200px) {
 		author-slogan {
-			font-size: 5rem;
+			font-size: 3rem;
 			width: fit-content;
 			text-align: right;
-		}
-
-		profile-container img {
-			height: 10rem;
-			width: 10rem;
 		}
 	}
 

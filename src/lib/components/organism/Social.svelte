@@ -107,6 +107,7 @@
 		</contact-row>
 	</contact-container>
 
+	<img src="/assets/profileLarge.png" alt="Andrew Burnie " />
 	<contact-image-container>
 		<div id="world" />
 	</contact-image-container>
@@ -115,6 +116,12 @@
 <contact-location>Based in London UK, working with a global market</contact-location>
 
 <style>
+	img {
+		height: 20vh;
+		width: 20vh;
+		margin: auto;
+	}
+
 	contact-container {
 		display: flex;
 		flex-direction: column;
@@ -133,7 +140,6 @@
 	contact-label,
 	contact-link {
 		width: 295px;
-		text-align: center;
 	}
 
 	contact-label {
@@ -143,6 +149,7 @@
 	flex-box {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 	contact-image-container {
 		margin: auto;
