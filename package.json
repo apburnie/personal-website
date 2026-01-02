@@ -33,7 +33,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource-variable/raleway": "^5.1.0",
-		"p5": "^1.8.0",
+		"@types/three": "^0.182.0",
 		"three": "^0.175.0"
 	}
 }

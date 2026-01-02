@@ -6,15 +6,15 @@
 
 <div>
 	<p>
-		I build fast, beautiful websites that work from smartphones to desktop and that interact with
-		any blockchain or database under tight deadlines with the following leading-edge technologies:
+		I build fast, beautiful websites that work from smartphones to desktop and that interact with AI
+		LLMs or Web3 blockchains under tight deadlines with the following leading-edge technologies:
 	</p>
 </div>
 <category-container>
 	<SmartBox heading="Macro: Layout and Architecture" id="macro">
 		<p>React, Svelte, Vue.js and HTML</p>
 		<p>Vite and Next.js</p>
-		<p>TypeScript, JavaScript and WebAssembly</p>
+		<p>TypeScript, JavaScript, Python and WebAssembly</p>
 		<p>End-to-end and Unit Testing</p>
 		<p>Atomic Design System</p>
 	</SmartBox>

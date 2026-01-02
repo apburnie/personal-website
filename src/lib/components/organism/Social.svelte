@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Link from '$lib/components/atom/Link.svelte';
 
@@ -7,7 +7,7 @@
 	let x = 0;
 	let img;
 
-	function decodeEmail(emailString) {
+	function decodeEmail(emailString: string): string {
 		if (!emailString) return '<div/>';
 
 		try {
@@ -20,7 +20,7 @@
 	}
 
 	onMount(async () => {
-		const emailHTML = document.querySelectorAll('#email');
+		const emailHTML = document.querySelectorAll('#email') as NodeListOf<HTMLElement>;
 
 		emailHTML.forEach((email) => {
 			if (email === undefined || email.textContent === undefined) {
@@ -28,7 +28,7 @@
 			}
 
 			email.style.display = 'block';
-			email.innerHTML = decodeEmail(email.textContent);
+			email.innerHTML = decodeEmail(email.textContent!);
 		});
 
 		const scene = new THREE.Scene();
@@ -39,21 +39,20 @@
 		renderer.setSize(314, 276);
 		renderer.setAnimationLoop(animate);
 
-		document.getElementById('world').appendChild(renderer.domElement);
+		document.getElementById('world')!.appendChild(renderer.domElement);
 
 		const loader = new THREE.TextureLoader();
-		let world = null;
+		let world: null | THREE.Mesh = null;
 
 		const geometry = new THREE.SphereGeometry(0.99, 32, 32);
 		const material = new THREE.MeshBasicMaterial({ color: '#00151a' });
 		const sphere = new THREE.Mesh(geometry, material);
 		scene.add(sphere);
 
-		loader.load('/assets/worldMap.png', function (texture) {
+		loader.load('/assets/worldMap.png', function (texture: THREE.Texture) {
 			const geometry = new THREE.SphereGeometry(1, 32, 32);
 			const material = new THREE.MeshBasicMaterial({
 				map: texture,
-				overdraw: 0.5,
 				transparent: true
 			});
 			world = new THREE.Mesh(geometry, material);

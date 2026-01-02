@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
@@ -12,7 +12,7 @@
 
 	$: activeSection = $page.url.hash.slice(1) || 'aboutMe';
 
-	const onSection = (sectionName) => () => {
+	const onSection = (sectionName: string) => () => {
 		if (sectionName !== activeSection) {
 			goto(`#${sectionName}`, { replaceState: true, noScroll: true });
 			activeSection = sectionName;
@@ -26,14 +26,14 @@
 		Contact
 	};
 
-	const sectionList = Object.keys(sectionObject);
+	const sectionList = Object.keys(sectionObject) as (keyof typeof sectionObject)[];
 </script>
 
 <Navigation {activeSection} {sectionList} />
 
 <main>
 	{#each sectionList as section}
-		<content-container id={section} on:mouseenter={onSection(section)}>
+		<content-container id={section} on:mouseenter={onSection(section)} role="region">
 			<svelte:component this={sectionObject[section]} />
 		</content-container>
 	{/each}

@@ -40,7 +40,7 @@
 		light.position.set(4, 0, -3);
 		scene.add(light);
 
-		document.getElementById('rocketdiv').appendChild(renderer.domElement);
+		document.getElementById('rocketdiv')!.appendChild(renderer.domElement);
 
 		objLoader.load(
 			// resource URL
@@ -135,7 +135,9 @@
 		</profile-container>
 		<author-slogan>
 			<author-name>Andrew Burnie</author-name>
-			<slogan-text>Fast Frontends <rocket-fuel-text>Delivered</rocket-fuel-text></slogan-text>
+			<slogan-text
+				>Mission-critical Websites <rocket-fuel-text>Delivered</rocket-fuel-text></slogan-text
+			>
 		</author-slogan>
 	</row-one>
 
@@ -144,16 +146,15 @@
 	</image-container>
 
 	<text-container>
-		<p>My websites have raised USD 310 million</p>
 		<p>
-			Secure, responsive, low-latency frontends delivered under tight timelines around your needs
+			Supporting companies through USD 310 million in funding rounds and USD 1 billion in
+			transactions
 		</p>
-		<p>Specialist expertise in AI, Cryptoassets and Web3</p>
+		<p>TypeScript - Python - UI/UX Design</p>
 	</text-container>
 </aboutme-container>
 
 <style>
-
 	rocket-fuel-text {
 		display: inline;
 		background: linear-gradient(to right, #f0bb47ff, #ff8573);
@@ -180,24 +181,24 @@
 		border: 5px solid black;
 		background: black;
 		max-width: 90vw;
-width: 560px;
+		width: 560px;
 		overflow: hidden;
 		margin: auto;
 		margin-top: 20px;
 		margin-bottom: 20px;
 		border-radius: 50% 20% 20% 50%;
-position: relative;
-right: 0;
-animation-name: rocketMove;
+		position: relative;
+		right: 0;
+		animation-name: rocketMove;
 		animation-duration: 10s;
 		animation-iteration-count: 1;
 	}
 
-	@keyframes rocketMove{
+	@keyframes rocketMove {
 		0% {
 			left: 100vw;
 		}
-50% {
+		50% {
 			left: 100vw;
 		}
 		89% {
@@ -207,7 +208,6 @@ animation-name: rocketMove;
 			left: 0;
 		}
 	}
-
 
 	author-slogan {
 		display: flex;
@@ -289,8 +289,6 @@ animation-name: rocketMove;
 			left: 0;
 		}
 	}
-
-
 
 	@keyframes fadeIn {
 		0% {
